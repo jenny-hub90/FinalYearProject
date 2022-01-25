@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp and LogIn</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{%static 'css/Login.css'%}">
+</head>
+<body>
+
+
+    <div class="container">
+
+
+        <section class="login">
+            <div class="logo">
+                <img src="{% static 'Images/Logo.jpg' %}">
+            </div>
+
+
+            <form action="login" method="post">
+
+                {% csrf_token %}
+                <input type="text" class="form-control" name="username" placeholder="User Name">
+                <input type="password" class="form-control" name="password" placeholder="Password">
+
+
+
+                <input type="submit" value="LogIn" class="bg-primary">
+
+                <p>You don't have an account? <a href="#" onclick="change()">SignUp</a> </p>
+                
+                <button id="leftSide" type="button">Forgot Password</button>
+
+
+
+            </form>
+           
+    
+        </section>
+
+       
+
+
+    </div>
+
+
+    <!-- copy and paste for signup -->
+<div>
+    {% for messages in messages%}
+    <h4>{{messages}}</h4>
+    {% endfor %}
+</div>
+
+    <div class="container1">
+
+
+        <section class="signup">
+            <div class="logo">
+                <img src="{% static 'Images/Logo.jpg' %}">
+            </div>
+
+
+            <form action="register" method="post">
+                {% csrf_token %}
+
+                <input type="text" class="form-control" name ="username" placeholder="User Name">
+                <input type="email" class="form-control" name ="email" placeholder="Mail Id">
+                <input type="password" class="form-control" name = "password1" placeholder="Password">
+                <input type="password" class="form-control" name = "password2" placeholder="Confirm Password">
+				
+
+
+
+                <input type="submit" value="SignUp" class="bg-success">
+
+                <p>You alredy have an account? <a href="#" onclick="change()">LogIn</a> </p>
+
+
+
+
+            </form>
+            <div class="media">
+                <li><i class="fab fa-google-plus-g fa-2x" style="color: red;"></i></li>
+                <li><i class="fab fa-facebook-square fa-2x" style="color: #3b5998;"></i></li>
+                <li><i class="fab fa-twitter fa-2x" style="color: dodgerblue;"></i></li>
+                <li><i class="fab fa-instagram fa-2x" style="color:  #E1306C;"></i></li>
+            </div>
+
+           
+        </section>
+
+        <div class="empty">
+            <div class="empty1">
+                <div class="content">
+                    <h1>HELLO!</h1>
+                    <p>WE ARE HAPPY TO SEE YOU AGAIN</p>
+                </div>
+            </div>
+
+
+            <div class="empty2">
+                <div class="content">
+                    <h1>WELCOME!</h1>
+                    <p>REGISTER AND ENJOY OUR BENEFITS</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <script>
+        function change(){
+            var e=document.querySelector('.container');
+            e.classList.toggle('active');
+
+
+            var e=document.querySelector('.container1');
+            e.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

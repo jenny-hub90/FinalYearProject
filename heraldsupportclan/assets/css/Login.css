@@ -1,0 +1,175 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+  
+  }
+  
+  .container .login, .container1 .signup{
+	  width: 400px;
+	  height: 500px;
+	  border: 2px solid #ccc;
+	  position: absolute;
+	  top: 20%;
+	  left: 37%;
+	  transform-style: preserve-3d;
+	  backface-visibility: hidden;
+	  background-color: #fff;
+	  border-radius: 40px;
+	  transition: 1s ease-in-out;
+  }
+  
+  .container .login{
+	  transform: perspective(600px) rotateY(0deg);
+  }
+  .container1 .signup{
+	  transform: perspective(600px) rotateY(180deg);
+	  height: 560px;
+  }
+  
+  
+  .active .login{
+	  transform: perspective(600px) rotateY(-180deg);
+  }
+  .active .signup{
+	  transform: perspective(600px) rotateY(0deg);
+  }
+  
+  
+
+  .login .logo{
+	margin-left: 45%;
+	margin-top: 2rem;
+	width: 60px;
+	
+	}
+
+.signup .logo{
+	margin-left: 45%;
+	margin-top: 2rem;
+	width: 60px;
+	}
+
+  .login img{
+	width: 100%;
+	align-items: center;
+}
+  .signup img{
+	width: 100%;
+	align-items: center;
+  }
+  
+  .login input, .signup input{
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 80%;
+	  border: none;
+	  border-bottom: 2px solid #000;
+	  margin-top: 2rem;
+  
+  }
+  
+  .login input[type=submit], .signup input[type=submit] {
+	  width: 44%;
+	  height: 40px;
+	  margin: 0 2px;
+	  font-size: 20px;
+	  font-weight: 500;
+	  margin: 2rem 7rem;
+	  color: #fff;
+	  border: none;
+    }
+
+	#leftSide{
+		border: 0;
+	   outline: none;
+	   font-size: 20px;
+	   padding: 10px 31px;
+	   background-color: #2fa4ef;
+	   margin: 2rem 5rem;
+	   color:white;
+	  }
+	   
+   
+  .login .media, .signup .media{
+	  margin-left: 2rem;
+	  list-style: none;
+  }
+  
+  .login .media li, .signup .media li{
+	 
+	 margin: 2rem 20px;
+	 padding: 5px;
+  } 
+  p{
+	  margin: -1rem 3rem;
+  }
+  
+  .empty1{
+	  width: 50%;
+	  height: 100vh;
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  background-color: #75bf44;
+	  z-index: -2000;
+	  transition: 1s ease-in-out;
+  }
+  
+  .empty2{
+	  width: 50%;
+	  height: 100vh;
+	  position: absolute;
+	  top: 0;
+	  left: 50%;
+	  background-color: #333;
+	  z-index: -2000;
+	  transition: 1s ease-in-out;
+	  color: transparent;
+	  -webkit-text-stroke-color: transparent;
+	  
+  }
+  .empty .content{
+	  margin-top: 35vh;
+	  transition: 1s ease-in-out;
+  }
+  
+  .empty h1{
+	  margin-left: 10rem;
+	  font-size: 80px;
+	  -webkit-text-stroke: 3px;
+	  -webkit-text-stroke-color: #000;
+	  -webkit-text-fill-color: transparent;
+	  transition: 1s ease-in-out;
+  }
+  
+  .empty p{
+	  color: black;
+	  font-size: 30px;
+	  transition: 1s ease-in-out;
+  }
+  .empty2 p, .empty2 h1{
+	  color: transparent;
+	  -webkit-text-stroke-color: transparent;
+	  margin-left: 10px;
+  
+  }
+  
+  .active .empty1, .active .empty1 p, .active .empty1 h1{
+	  top: 0;
+	  left: 50%;
+	  color: transparent;
+	  -webkit-text-stroke-color: transparent;
+  }
+  
+  .active .empty2, .active .empty2 p, .active .empty2 h1{
+	  top: 0;
+	  left: 0;
+	  color: white;
+	  -webkit-text-stroke-color: #fff;
+  }
+  
+  @media screen and (max-width: 500px){
+	  
+  }

@@ -1,0 +1,303 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
+    
+    <link rel="stylesheet" href="{%static 'css/Home.css'%}">
+   
+</head>
+<body>
+
+
+
+<!-- header section starts  -->
+
+<header class="header">
+    
+  <a href="#" class="logo"><span>Herald</span>SupportClan</a>
+
+  <nav class="navbar">
+    <a href="{% url 'Home' %}">Home</a>
+    <a href="{% url 'F' %}">Forum</a>
+    <a href="{% url 'Event' %}">Events</a>
+    <a href="{% url 'Newsletter' %}">Newsletter</a>
+  </nav>
+
+  <div id="menu-bars" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section id="home" class="container-fluid">
+
+<div class="row align-items-center min-vh-100 content">
+
+<div class="col-md-8 ml-md-5 text-center text-md-left">
+
+  
+  <h2>Hello</h2>
+  <h1>Discussion Forum</h1>
+  <h3>learn online outside the classroom</h3>
+
+  {% if user.is_authenticated %}
+  <h2> Hello, {{user.username}}</h2>
+  <a href="accounts/logout"><button> Logout now>></button></a>  
+  {% else %}
+  <a href="accounts/register"><button> SignUp now>></button></a>  
+  {% endif %}
+  <div class="icons">
+    <a href="#" class="fab fa-facebook-f"></a>
+    <a href="#" class="fab fa-twitter"></a>
+    <a href="#" class="fab fa-instagram"></a>
+    <a href="#" class="fab fa-linkedin"></a>
+  </div>
+
+</div>
+
+</div>
+
+
+</section>
+
+<!-- home section ends -->
+
+<!-- course section starts  -->
+
+<section id="course">
+
+<h1 class="heading">our latest events</h1>
+
+<div class="box-container">
+
+  <div class="box" data-aos="flip-right">
+    <img src="{% static 'Images/event1.jpg' %}" alt="">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolor fuga soluta quo quos delectus praesentium aliquam officia? Repellendus, natus.</p>
+  </div>
+
+  <div class="box" data-aos="flip-down">
+    <img src="{% static 'Images/event2.jpg' %}" alt="">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolor fuga soluta quo quos delectus praesentium aliquam officia? Repellendus, natus.</p>
+  </div>
+
+  <div class="box" data-aos="flip-left">
+    <img src="{% static 'Images/event3.jpg' %}" alt="">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolor fuga soluta quo quos delectus praesentium aliquam officia? Repellendus, natus.</p>
+  </div>
+
+  <div class="box" data-aos="flip-right">
+    <img src="{% static 'Images/event4.jpg' %}" alt="">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolor fuga soluta quo quos delectus praesentium aliquam officia? Repellendus, natus.</p>
+  </div>
+
+  <div class="box" data-aos="flip-up">
+    <img src="{% static 'Images/event5.jpg' %}" alt="">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolor fuga soluta quo quos delectus praesentium aliquam officia? Repellendus, natus.</p>
+  </div>
+
+  <div class="box" data-aos="flip-right">
+    <img src="{% static 'Images/event6.jpg' %}" alt="">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolor fuga soluta quo quos delectus praesentium aliquam officia? Repellendus, natus.</p>
+  </div>
+
+</div>
+
+</section>
+
+<!-- course section ends -->
+
+
+<!-- service section starts  -->
+
+<section id="service">
+
+<h1 class="heading">what we offer?</h1>
+
+<div class="box-container">
+
+  <div class="box" data-aos="flip-up">
+    <img src="{% static 'Images/service1.jpg' %}" alt="">
+    <div class="info">
+      <h2>skilled teachers</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ad officia quas pariatur error nesciunt consectetur voluptatem minima fugit quo!</p>
+    </div>
+  </div>
+
+  <div class="box" data-aos="flip-down">
+    <img src="{% static 'Images/service2.jpg' %}" alt="">
+    <div class="info">
+      <h2>Work on Assignments Together</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ad officia quas pariatur error nesciunt consectetur voluptatem minima fugit quo!</p>
+    </div>
+  </div>
+
+  <div class="box" data-aos="flip-up">
+    <img src="{% static 'Images/service3.jpg' %}" alt="">
+    <div class="info">
+      <h2>Make new Friends</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ad officia quas pariatur error nesciunt consectetur voluptatem minima fugit quo!</p>
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+<!-- service section ends -->
+
+<!-- testimonials section starts  -->
+
+<section id="testimonial">
+
+<h1 class="heading">what our students says</h1>
+
+<div class="box-container">
+
+<div class="box" data-aos="flip-left">
+  <img src="{% static 'Images/Screenshot 2021-12-06 at 15-09-02  jeshmi_rajak • Instagram photos and videos.png' %}" alt="">
+  <div class="info">
+    <p><i class="fas fa-quote-left"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quae minima pariatur consequatur odio veniam nam dolorum enim eum a?<i class="fas fa-quote-right"></i></p>
+    <h2>--Jeshmi Rajak</h2>
+  </div>
+</div>
+
+<div class="box" data-aos="flip-right">
+  <img src="{%static 'Images/Screenshot 2021-12-06 at 15-10-44 Matina Bajracharya ( matinaaa _) • Instagram photos and videos.png' %}" alt="">
+  <div class="info">
+    <p><i class="fas fa-quote-left"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quae minima pariatur consequatur odio veniam nam dolorum enim eum a?<i class="fas fa-quote-right"></i></p>
+    <h2>--Matina Bajracharya</h2>
+  </div>
+</div>
+
+<div class="box" data-aos="flip-left">
+  <img src="{%static 'Images/Screenshot 2021-12-06 at 15-11-27 Binil Baidya ( __binil__) • Instagram photos and videos.png' %}" alt="">
+  <div class="info">
+    <p><i class="fas fa-quote-left"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quae minima pariatur consequatur odio veniam nam dolorum enim eum a?<i class="fas fa-quote-right"></i></p>
+    <h2>--Binil Baidya</h2>
+  </div>
+</div>
+
+<div class="box" data-aos="flip-right">
+  <img src="{%static 'Images/Screenshot 2021-12-06 at 15-14-47 Daniel Man Prajapati ( dan_daniels_dj) • Instagram photos and videos.png' %}" alt="">
+  <div class="info">
+    <p><i class="fas fa-quote-left"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quae minima pariatur consequatur odio veniam nam dolorum enim eum a?<i class="fas fa-quote-right"></i></p>
+    <h2>--Daniel Prajapati</h2>
+  </div>
+</div>
+
+</div>
+
+</section>
+
+<!-- testimonials section ends -->
+
+<!-- contact section starts  -->
+
+<section id="contact" class="container-fluid">
+
+<h1 class="heading">get in touch</h1>
+
+<div class="row min-vh-75 align-items-center min-vw-100">
+
+<div class="col-lg-5 col-md-8  mx-auto">
+ 
+<form action="" data-aos="zoom-in">
+
+  <div class="inputBox">
+    <input type="text" required>
+      <h3>full name</h3>
+  </div>
+
+  <div class="inputBox">
+    <input type="email" required>
+      <h3>e-mail</h3>
+  </div>
+
+  <div class="inputBox">
+    <input type="number" required>    
+      <h3>phone</h3>
+  </div>
+
+  <div class="inputBox">
+    <textarea name="" id="" cols="30" rows="10" required></textarea>
+    <h3>message</h3>
+  </div>
+
+  <div class="inputBox">
+    <input type="submit">
+  </div>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- contact section ends -->
+
+
+<!-- footer section starts  -->
+
+<section id="footer">
+
+<h1>&copy; copyright @ 2021 by <span>Herald College Kathmandu</span></h1>
+
+</section>
+
+<!-- footer section ends -->
+
+
+<div class="theme-toggler">
+
+  <div class="toggle-btn">
+      <i class="fas fa-cog"></i>
+  </div>
+
+  <h3>choose color</h3>
+
+  <div class="buttons">
+      <div class="theme-btn" style="background: #3867d6;"></div>
+      <div class="theme-btn" style="background: #f7b731;"></div>
+      <div class="theme-btn" style="background: #ff0033;"></div>
+      <div class="theme-btn" style="background: #20bf6b;"></div>
+      <div class="theme-btn" style="background: #fa8231;"></div>
+      <div class="theme-btn" style="background: #FC427B;"></div>
+  </div>
+
+</div>
+
+
+
+
+
+<!-- script part start  -->
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      delay:500
+    });
+</script>
+ <!-- jQuery -->
+ <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<!--JS-->
+<!-- custom js file link  -->
+<script src="{%static 'js/Home.js'%}"></script>
+<script src="{%static 'js/event.js'%}"></script>
+<script src ="{%static 'js/script.js'%}"></script>
+
+</body> 
+</html>
