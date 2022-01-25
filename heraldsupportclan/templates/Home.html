@@ -1,4 +1,5 @@
 {% load static %}
+{% static 'Images' as baseUrl %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,41 +76,45 @@
 
 <!-- course section starts  -->
 
+{% comment %} {% for sec in secs %} {% endcomment %}
 <section id="course">
 
 <h1 class="heading">our latest events</h1>
 
+{% for sec in secs %}
 <div class="box-container">
 
   <div class="box" data-aos="flip-right">
-    <img src="{% static 'Images/event1.jpg' %}" alt="">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolor fuga soluta quo quos delectus praesentium aliquam officia? Repellendus, natus.</p>
+    <img src="{{sec.img.url}}" alt="">
+    <p>{{sec.desc}}</p>
   </div>
+ 
 
-  <div class="box" data-aos="flip-down">
-    <img src="{% static 'Images/event2.jpg' %}" alt="">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolor fuga soluta quo quos delectus praesentium aliquam officia? Repellendus, natus.</p>
+  {% comment %} <div class="box" data-aos="flip-down">
+    <img src="{{sec2.img.url}}" alt="">
+    <p>{{sec2.desc}}</p>
   </div>
 
   <div class="box" data-aos="flip-left">
-    <img src="{% static 'Images/event3.jpg' %}" alt="">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolor fuga soluta quo quos delectus praesentium aliquam officia? Repellendus, natus.</p>
+    <img src="{{sec3.img.url}}" alt="">
+    <p>{{sec3.desc}}</p>
   </div>
 
   <div class="box" data-aos="flip-right">
-    <img src="{% static 'Images/event4.jpg' %}" alt="">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolor fuga soluta quo quos delectus praesentium aliquam officia? Repellendus, natus.</p>
+    <img src="{{sec4.img.url}}" alt="">
+    <p>{{sec4.desc}}</p>
   </div>
 
   <div class="box" data-aos="flip-up">
-    <img src="{% static 'Images/event5.jpg' %}" alt="">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolor fuga soluta quo quos delectus praesentium aliquam officia? Repellendus, natus.</p>
+    <img src="{{sec5.img.url}}" alt="">
+    <p>{{sec5.desc}}</p>
   </div>
 
   <div class="box" data-aos="flip-right">
-    <img src="{% static 'Images/event6.jpg' %}" alt="">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolor fuga soluta quo quos delectus praesentium aliquam officia? Repellendus, natus.</p>
-  </div>
+    <img src="{{sec6.img.url}}" alt="">
+    <p>{{sec6.desc}}</p>
+  </div> {% endcomment %}
+  {% endfor %}
 
 </div>
 

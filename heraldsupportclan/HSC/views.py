@@ -1,8 +1,12 @@
 from django.shortcuts import render
+from .models import LatestEvents
+
 
 # Create your views here.
 def Home(request):
-    return render(request,'Home.html')
+   secs = LatestEvents.objects.all()
+
+   return render(request,'Home.html', {'secs': secs})
 
 def F(request):
     return render(request,'F.html')
