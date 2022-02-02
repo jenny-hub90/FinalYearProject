@@ -1,4 +1,7 @@
+{% extends 'base.html' %}
 {% load static %}
+{% block content %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,42 +35,26 @@
 
 <!-- header section ends -->
 
- <div class="row">
- 	<div class="left-column">
- 	  <div class="card">
- 		<h1>TITLE HEADING</h1>
- 		<h2>Title description, Dec 7, 2017</h2>
- 		<img src="{% static 'Images/news3.jpg' %}" alt="blog "/>
- 		<p>Some text..</p>
- 		<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
- 	  </div>
- 	  <div class="card">
- 		<h1>TITLE HEADING</h1>
- 		<h2>Title description, Dec 7, 2017</h2>
- 		<img src="{% static 'Images/news4.jpg' %}" alt="blog "/>
- 		<p>Some text..</p>
- 		<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
- 	  </div>
- 	</div>
 
- 	<div class="right-column">
- 		<div class="card">
- 			 <h1>Thought of the Day</h1>
- 			 <img src="{% static 'Images/day.jpg' %}" alt="me"/>
- 			 <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
- 		</div>
- 		<div class="card">
- 			 <h3>Some Pictures</h3>
- 			 <img src="{% static 'Images/news5.jpg' %}" alt="popular"/>
- 			 <img src="{% static 'Images/news6.jpg' %}" alt="popular"/>
- 			 <img src="{% static 'Images/News1.jpg' %}" alt="popular"/>
- 		</div>
- 		<div class="card">
- 			<h3>Follow Me</h3>
- 			<p>Some Text...</p>
- 		</div>
- 	</div>
- </div>
+
+
+<h1>Post</h1>
+
+<ul>
+{% for post in object_list %}
+<h1>{{ post.title }}</h1>
+<h5>By: {{ post.author.first_name }} {{ post.author.last_name }}</h5><br/>
+<hr></hr>
+<br/>
+<h3>{{ post.body }}</h3>
+<br/>
+<br/>
+{% endfor %}
+</ul>
+
+
+
+
 
 <!-- footer section starts  -->
 
@@ -109,3 +96,4 @@
 
 </body>
 </html>
+{% endblock %}
