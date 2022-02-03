@@ -43,10 +43,16 @@
 <ul>
 {% for post in object_list %}
 <h1>{{ post.title }}</h1>
-<h5>By: {{ post.author.first_name }} {{ post.author.last_name }}</h5><br/>
+<h5>By: {{ post.author.first_name }} 
+        {{ post.author.last_name }} - 
+        {{ post.post_date }} </h5><br/>
 <hr></hr>
 <br/>
-<h3>{{ post.body }}</h3>
+{% if post.header_image %}
+   <img src = "{{ post.header_image.url }}">
+{% endif %}
+<br/><br/>
+<p>{{ post.body }}</p>
 <br/>
 <br/>
 {% endfor %}

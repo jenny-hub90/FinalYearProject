@@ -23,6 +23,7 @@ def Event(request):
 class Newsletter(ListView):
     model = Post
     template_name = 'Newsletter.html'
+    ordering = ['-post_date']
 
 # class Newsletter(DetailView):
 #     model = Post
