@@ -14,16 +14,22 @@
 <section id="slider" class="pt-5">
   <div class="container">
     <h1 class="text-center"><b>More Information on Events</b></h1>
+	
 	  <div class="slider">
 				<div class="owl-carousel">
+					{% for slider in sliderdata %}
 					<div class="slider-card">
 						<div class="d-flex justify-content-center align-items-center mb-4">
-							<img src="{% static 'Images/event1.jpg' %}" alt="" >
+							<img src="{{ slider.image.url }}" alt="" >
 						</div>
-						<h5 class="mb-0 text-center"><b>Events Name</b></h5>
-						<p class="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
+						<h5 class="mb-0 text-center"><b>{{ slider.title }}</b></h5>
+						<p class="text-center p-4"> {{ slider.description }}
+
+						</p>
 					</div>
-					<div class="slider-card">
+					{% endfor %}
+					
+					{% comment %} <div class="slider-card">
 						<div class="d-flex justify-content-center align-items-center mb-4">
 							<img src="{% static 'Images/event2.jpg' %}" alt="">
 						</div>
@@ -50,10 +56,12 @@
 						</div>
 						<h5 class="mb-0 text-center"><b>Events Name</b></h5>
 						<p class="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
-					</div>
+					</div> {% endcomment %}
 				</div>
 			</div>
+		
   </div>
+
 </section>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script> 

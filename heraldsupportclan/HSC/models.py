@@ -1,4 +1,5 @@
 from distutils.command.upload import upload
+from email.mime import image
 from django.contrib.auth.models import User
 from django.db import models
 from datetime import datetime, date
@@ -19,4 +20,9 @@ class Post(models.Model):
     def _str_(self):
         return self.title + ' | ' + str(self.author)
 
+class slider(models.Model):
+    title = models.CharField(max_length=100, blank=False)
+    description = models.TextField(max_length=800,blank=False)
+    image = models.ImageField(upload_to="slider/", blank=False)
 
+     

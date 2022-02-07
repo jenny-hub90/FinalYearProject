@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import LatestEvents, Post
+from .models import LatestEvents, Post, slider
 from django.views.generic import ListView, DetailView
 
 
@@ -25,7 +25,8 @@ def changepassword(request):
     return render(request, 'change-password.html')
 
 def eventinfo(request):
-    return render(request,'eventinfo.html')
+    sliderdata = slider.objects.all()
+    return render(request,'eventinfo.html',{'sliderdata':sliderdata})
 
 #def Newsletter(request):
     #return render(request,'Newsletter.html', {})
