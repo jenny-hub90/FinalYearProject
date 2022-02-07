@@ -11,4 +11,7 @@ urlpatterns = [
     path('Event',views.Event, name='Event'),
     #path('Newsletter',views.Newsletter, name='Newsletter'),
     path('Newsletter', Newsletter.as_view(), name="Newsletter"),
+    path('ForgotPassword', views.ForgotPassword, name='ForgotPassword'),
+    path('changepassword', views.changepassword, name="changepassword"),
+    path('eventinfo', views.eventinfo, name='eventinfo'),
 ]

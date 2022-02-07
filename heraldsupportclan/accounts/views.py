@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User, auth
-from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -43,7 +43,7 @@ def register(request):
                 return redirect('register')
             else:
                 user = User.objects.create_user(username=username, password=password1, email=email)
-                user.save();
+                user.save()
                 print(request,'user created')
                 return redirect('login')
         else:
@@ -62,3 +62,6 @@ def logout(request):
     return redirect('/')
 
 # @login_required(login_url="/login/")
+
+
+

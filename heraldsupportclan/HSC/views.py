@@ -18,6 +18,15 @@ def Login(request):
 def Event(request):
     return render(request,'Event.html')
 
+def ForgotPassword(request):
+    return render(request, 'ForgotPassword.html')
+
+def changepassword(request):
+    return render(request, 'change-password.html')
+
+def eventinfo(request):
+    return render(request,'eventinfo.html')
+
 #def Newsletter(request):
     #return render(request,'Newsletter.html', {})
 class Newsletter(ListView):
