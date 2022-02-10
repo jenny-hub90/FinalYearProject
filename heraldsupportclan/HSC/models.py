@@ -25,4 +25,8 @@ class slider(models.Model):
     description = models.TextField(max_length=800,blank=False)
     image = models.ImageField(upload_to="slider/", blank=False)
 
+class review(models.Model):
+    studentimage = models.ImageField(max_length=800,upload_to="students/", blank=False)
+    studentreview = models.TextField(max_length=800, blank=False)
+    studentname = models.CharField(max_length=200, blank=False)
      

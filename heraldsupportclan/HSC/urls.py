@@ -14,4 +14,5 @@ urlpatterns = [
     path('ForgotPassword', views.ForgotPassword, name='ForgotPassword'),
     path('changepassword', views.changepassword, name="changepassword"),
     path('eventinfo', views.eventinfo, name='eventinfo'),
+    path('studentreview', views.studentreview, name='studentreview'),
 ]

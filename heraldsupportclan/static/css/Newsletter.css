@@ -111,6 +111,9 @@ section{
     cursor: pointer;
     display: none;
 }
+
+
+
 section1{
     position: relative;
     display: flex;
@@ -131,6 +134,10 @@ section1{
   .main-title{
     font-size: 4em;
     margin-bottom: 50px;
+}
+
+  .main-title span{
+    color:var(--main-color);
   }
   
   .content{
@@ -377,10 +384,7 @@ footer{
         width: 27rem;
     }
 
-    .contact form .inputBox input{
-        width: 100%;
-    }
-
+   
 }
 
 

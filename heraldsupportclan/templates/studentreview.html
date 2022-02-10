@@ -1,0 +1,42 @@
+{% load static %}
+{% static 'Images' as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static 'css/studentreview.css'%}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   
+</head>
+<body>
+<section class = "testimonials">
+    <div class = "container">
+        <h1> What Our Students Says </h1>
+        <p class="text-center">Let us know what the students has to say about..</p>
+        {% for student in students %}
+        <div class="row">
+            
+            <div class="col-md-4" text-center>
+             <div class="profile">
+             <img src= "{{student.studentimage.url}}" class="user">
+             <p><i class="fas fa-quote-left"></i>{{student.studentreview}}<i class="fas fa-quote-right"></i></p>
+             <h3> {{student.studentname}}</h3>
+             </div>
+            </div>
+        </div>
+    </div>
+   
+{% endfor %}
+    
+</section>
+    
+</body> 
+</html>
