@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .models import LatestEvents, Post, slider, review
 from django.views.generic import ListView, DetailView
-from django.contrib.auth import authenticate, login, logout
+
 
 
 
@@ -15,20 +15,11 @@ def F(request):
 
 def registerPage(request):
     context ={}
-    return render(request,'accounts/register.html', context)
+    return render(request,'registration/register.html', context)
 
 def loginPage(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return redirect('Home')
     context ={}
-    return render(request,'accounts/login.html', context)
+    return render(request,'registration/login.html', context)
 
 def Event(request):
     return render(request,'Event.html')
