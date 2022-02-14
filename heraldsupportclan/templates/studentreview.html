@@ -1,5 +1,6 @@
 {% load static %}
 {% static 'Images' as baseUrl %}
+{%if user.is_authenticated%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,3 +41,8 @@
     
 </body> 
 </html>
+{% else %}
+<p style="color:#75bf44;font-size:46px;font-family: 'Poppins', sans-serif;">
+    Please Register or LogIn to view this page!
+</p>
+{% endif %}

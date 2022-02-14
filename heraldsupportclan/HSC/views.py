@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import LatestEvents, Post, slider, review
 from django.views.generic import ListView, DetailView
+from django.contrib.auth import authenticate, login, logout
+
 
 
 # Create your views here.
@@ -11,8 +13,22 @@ def Home(request):
 def F(request):
     return render(request,'F.html')
 
-def Login(request):
-    return render(request,'Login.html')
+def registerPage(request):
+    context ={}
+    return render(request,'accounts/register.html', context)
+
+def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('Home')
+    context ={}
+    return render(request,'accounts/login.html', context)
 
 def Event(request):
     return render(request,'Event.html')

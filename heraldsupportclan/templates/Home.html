@@ -167,7 +167,8 @@
 
 <section id="testimonial">
 
-<h1 class="heading"><a href="{% url 'studentreview' %}">what our students says</a></h1>
+<h1 class="heading">{% if user.is_authenticated%}<a href="{% url 'studentreview' %}">{% endif %}what our students says</a></h1>
+
 
 <div class="box-container">
 

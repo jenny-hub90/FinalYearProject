@@ -7,7 +7,8 @@ urlpatterns = [
    
     path('',views.Home, name='Home'),
     path('F',views.F, name='F'),
-    path('Login',views.Login, name='Login'),
+    path('register/',views.registerPage, name='register'),
+    path('login/',views.loginPage, name='login'),
     path('Event',views.Event, name='Event'),
     #path('Newsletter',views.Newsletter, name='Newsletter'),
     path('Newsletter', Newsletter.as_view(), name="Newsletter"),
