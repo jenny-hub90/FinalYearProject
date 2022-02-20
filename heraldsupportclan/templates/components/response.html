@@ -1,0 +1,14 @@
+<blockquote id="{{response.id}}">
+    <p class= "response-body">{{response.body}}</p>
+    <small class= "response-author"> by {{response.user.username}}</p>
+
+    {% if user.is_authenticated %}
+    <button class="reply-button">Reply</button>
+
+    {% endif %}
+
+    {% for children in response.get_responses %}
+    {% include 'components/response.html' with response=children %}
+    {% endfor %}
+    
+</blockquote>

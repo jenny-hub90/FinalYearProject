@@ -1,187 +1,23 @@
-{% load static %}
-{% if user.is_authenticated%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forum</title>
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="{% static 'css/Forum.css' %}">
+{% extends 'layouts/page.html' %}
 
-</head>
-<body>
-    
+{% block content %}
+<div class="page">
+<h1 class="title"> All questions</h1>
 
-    <!-- header section starts  -->
-
-<header class="header">
-    
-    <a href="#" class="logo"><span>Herald</span>SupportClan</a>
-
-    <nav class="navbar">
-        <a href="{% url 'Home' %}">Home</a>
-        <a href="{% url 'F' %}">Forum</a>
-        <a href="{% url 'Event' %}">Events</a>
-        <a href="{% url 'Newsletter' %}">Newsletter</a>
-    </nav>
-
-    <div id="menu-bars" class="fas fa-bars"></div>
-    
-
-</header>
-
-
-<!-- header section ends -->
-<div id="wrapper">
-    <div id= "hdcomments">
-        <h3>Leave your Queries</h3>
-        <div id = "hdc_create_comment">
-            <!--comment form-->
-            <label for = "hdc_comment_input" class = "hdc_label">Leave a Comment</label>
-            <textarea id = "hdc_comment_input" rows = "6" class= "hdc_input"></textarea>
-
-            <div id="hdc_comment_contact">
-            <div>
-            <label for = "hdc_email_input" class = "hdc_label">Your Email</label>
-            <input type ="email" id= "hdc_email_input" class= "hdc_input"/>
-            </div>
-            <div>
-            <label for = "hdc_email_input" class = "hdc_label">Your Name</label>
-            <input type ="name" id= "hdc_name_input" class= "hdc_input"/>
-        </div>
-        </div>
-        <div id = "hdc_comment_footer">
-            <div id= "hdc_comment_reactions">
-            <h4 id = "hdc_reaction_title">Reactions</h4>
-            <span class = "hdc_reaction" data-reaction = "like">👍</span>
-            <span class = "hdc_reaction" data-reaction = "satisfied" >❤️</span>
-            <span class = "hdc_reaction" data-reaction = "gotit">😄</span>
-            <span class = "hdc_reaction" data-reaction = "victory">✌️</span>
-            <span class = "hdc_reaction" data-reaction = "sad">😥</span>
-        </div>
-            <button id= "hdc_submit" disabled="true">Submit</button> 
-        </div>
-    </div>
-        <div id = "hdc_comments">
-            <!--show existing comments-->
-            <h3>Comments</h3>
-
-
-            <div class = "hdcomment" id= "hdcomment_1"> 
-                <div class = "hdc_comment">
-                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam labore fugiat ut esse perferendis perspiciatis provident dolores fuga in facilis culpa possimus, quia praesentium itaque, sapiente quasi harum rem asperiores.
-
-                 </p>
-                </div>
-                <div class="hdc_meta">
-                    <div class = "hdc_meta_date_author">
-                      May 11th 2021
-                      <span class="hdc_meta_author">-Jenny</span>  
-                    </div>
-                    <div class = "hdc_vote">
-                        <span class="hdc_vote_1">+3</span>
-                        <div class= "hdc_vote_options">
-                            <span class= "hdc_upvote" data-id="1">&#9650;</span>
-                            <span class= "hdc_downvote" data-id="1">&#9660;</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class = "hdcomment" id= "hdcomment_2"> 
-                <div class = "hdc_comment">
-                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam labore fugiat ut esse perferendis perspiciatis provident dolores fuga in facilis culpa possimus, quia praesentium itaque, sapiente quasi harum rem asperiores.
-
-                 </p>
-                </div>
-                <div class="hdc_meta">
-                    <div class = "hdc_meta_date_author">
-                      May 10th 2021
-                      <span class="hdc_meta_author">-Jeshmi</span>  
-                    </div>
-                    <div class = "hdc_vote">
-                        <span class="hdc_vote_2">-5</span>
-                        <div class= "hdc_vote_options">
-                            <span class= "hdc_upvote" data-id="2">&#9650;</span>
-                            <span class= "hdc_downvote" data-id="2">&#9660;</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class = "hdcomment" id= "hdcomment_3"> 
-                <div class = "hdc_comment">
-                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam labore fugiat ut esse perferendis perspiciatis provident dolores fuga in facilis culpa possimus, quia praesentium itaque, sapiente quasi harum rem asperiores.
-
-                 </p>
-                </div>
-                <div class="hdc_meta">
-                    <div class = "hdc_meta_date_author">
-                      May 9th 2021
-                      <span class="hdc_meta_author">-Rebisha</span>  
-                    </div>
-                    <div class = "hdc_vote">
-                        <span class="hdc_vote_3">+6</span>
-                        <div class= "hdc_vote_options">
-                            <span class= "hdc_upvote" data-id="3">&#9650;</span>
-                            <span class= "hdc_downvote" data-id="3">&#9660;</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-        
-        </div>
-    </div>
+{% for question in questions %}
+<div class ="question-list-item">
+    <a href = "{% url 'question' question.id %}">
+      <p class="question-list-item-title">
+          {{question.title}}
+      </p>
+      <p class="question-list-item-author">
+        by {{question.author.username}}
+    </p>
+    </a>
 </div>
-    
 
-
-
-    <!-- footer section starts  -->
-
-<section class="footer">
-    <div class="credit">&copy; copyright @ 2021 by <span>Herald College Kathmandu</span> </div>
-
-</section>
-
-<!-- footer section ends -->
-
-<!-- theme toggler  -->
-
-<div class="theme-toggler">
-
-    <div class="toggle-btn">
-        <i class="fas fa-cog"></i>
-    </div>
-
-    <h3>choose color</h3>
-
-    <div class="buttons">
-        <div class="theme-btn" style="background: #3867d6;"></div>
-        <div class="theme-btn" style="background: #f7b731;"></div>
-        <div class="theme-btn" style="background: #ff0033;"></div>
-        <div class="theme-btn" style="background: #20bf6b;"></div>
-        <div class="theme-btn" style="background: #fa8231;"></div>
-        <div class="theme-btn" style="background: #FC427B;"></div>
-    </div>
-
+{% endfor %}
 </div>
-    
 
-    <!-- custom js file link  -->
- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="{% static 'js/event.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/forum.js' %}"></script>
-</body>
-</html>
-{% else %}
-<p style="color:#75bf44;font-size:46px;font-family: 'Poppins', sans-serif;">
-Please Register or LogIn to view this page!
-</p>
-{% endif %}
+{% endblock %}
+

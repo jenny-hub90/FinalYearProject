@@ -5,6 +5,8 @@ from django.urls import reverse_lazy
 from .forms import SignUpForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -39,7 +41,7 @@ def loginPage(request):
     return render(request,'accounts/login.html', context)
 
  
-
+@login_required(login_url='register')
 def logoutUser(request):
 	logout(request)
 	return redirect('Home')

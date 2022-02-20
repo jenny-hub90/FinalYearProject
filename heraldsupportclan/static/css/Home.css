@@ -857,9 +857,9 @@ section{
   font-size: 3rem;
   animation: spin 4s linear infinite;
 }
-
+/* 
 @keyframes spin {
   0%{
       transform: rotate(360deg);
   }
-}
+} */

@@ -8,6 +8,8 @@ urlpatterns = [
    
     path('',views.Home, name='Home'),
     path('F',views.F, name='F'),
+    path('new-question', views.newQuestionPage, name='new-question'),
+    path ('question/<int:id>', views.questionPage, name='question'),
     path('register/',views.registerPage, name='register'),
     path('login/',views.loginPage, name='login'),
     path('Event',views.Event, name='Event'),
@@ -15,7 +17,6 @@ urlpatterns = [
     path('reset_password/',
     auth_views.PasswordResetView.as_view(template_name="registration/password_reset.html"),
     name="reset_password"),
-
     path('reset_password_sent/', 
     auth_views.PasswordResetDoneView.as_view(template_name="registration/password_reset_sent.html"), 
     name="password_reset_done"),
@@ -30,4 +31,5 @@ urlpatterns = [
     
     path('eventinfo', views.eventinfo, name='eventinfo'),
     path('studentreview', views.studentreview, name='studentreview'),
+    
 ]

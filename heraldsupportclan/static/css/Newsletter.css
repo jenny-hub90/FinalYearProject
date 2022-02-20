@@ -310,11 +310,11 @@ footer{
     animation: spin 4s linear infinite;
 }
 
-@keyframes spin {
+/* @keyframes spin {
     0%{
         transform: rotate(360deg);
     }
-}
+} */
 
 
 
