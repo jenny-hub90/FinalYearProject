@@ -10,6 +10,7 @@ urlpatterns = [
     path('F',views.F, name='F'),
     path('new-question', views.newQuestionPage, name='new-question'),
     path ('question/<int:id>', views.questionPage, name='question'),
+    path ('reply', views.replyPage, name='reply'),
     path('register/',views.registerPage, name='register'),
     path('login/',views.loginPage, name='login'),
     path('Event',views.Event, name='Event'),

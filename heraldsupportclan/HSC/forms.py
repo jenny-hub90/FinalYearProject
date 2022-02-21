@@ -1,4 +1,5 @@
 from dataclasses import field
+from tkinter import Widget
 from django import forms
 from .models import Question, Respose
 
@@ -18,5 +19,17 @@ class NewResoponseForm(forms.ModelForm):
     class Meta:
         model = Respose
         fields = ['body']
+
+
+class NewReplyForm(forms.ModelForm):
+    class Meta:
+        model = Respose
+        fields = ['body']
+        widgets = {
+            'body': forms.Textarea(attrs={
+                'rows': 2,
+                'placeholder': 'What are your thoughts?'
+            })
+        }
 
  
