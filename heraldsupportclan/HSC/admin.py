@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import LatestEvents, Post, slider, review,Question, Respose
+from .models import LatestEvents, Post, slider, review,Question, Respose, Eventslider
 
 # Register your models here.
 
@@ -9,3 +9,4 @@ admin.site.register(slider)
 admin.site.register(review)
 admin.site.register(Question)
 admin.site.register(Respose)
+admin.site.register(Eventslider)

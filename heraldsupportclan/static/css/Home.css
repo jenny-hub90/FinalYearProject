@@ -486,7 +486,7 @@ section{
   }
   
   #testimonial .box-container .box {
-    max-width: 60rem;
+    max-width: 100rem;
     background: #fff;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -538,7 +538,7 @@ section{
   }
   
   #testimonial .box-container .box:nth-child(even) {
-    float: right;
+    float: center;
   }
   
   #contact {

@@ -57,4 +57,7 @@ class Respose(models.Model):
 
     def get_responses(self):
         return Respose.objects.filter(parent=self)
+
+class Eventslider(models.Model):
+    eventimg = models.ImageField(max_length=800,upload_to="events/", blank=False)
      

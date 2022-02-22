@@ -159,6 +159,7 @@
 
 </div>
 
+
 </section>
 
 <!-- service section ends -->
@@ -169,17 +170,17 @@
 
 <h1 class="heading">{% if user.is_authenticated%}<a href="{% url 'studentreview' %}">{% endif %}what our students says</a></h1>
 
-
+{% for student in students %}
 <div class="box-container">
 
-<div class="box" data-aos="flip-left">
-  <img src="{% static 'Images/Screenshot 2021-12-06 at 15-09-02  jeshmi_rajak • Instagram photos and videos.png' %}" alt="">
+<div class="box" data-aos="fade-up-right">
+  <img src="{{ student.studentimage.url }}" alt="">
   <div class="info">
-    <p><i class="fas fa-quote-left"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quae minima pariatur consequatur odio veniam nam dolorum enim eum a?<i class="fas fa-quote-right"></i></p>
-    <h2>--Jeshmi Rajak</h2>
+    <p><i class="fas fa-quote-left"></i>{{student.studentreview}}<i class="fas fa-quote-right"></i></p>
+    <h2>--{{student.studentname}}</h2>
   </div>
 </div>
-
+{% comment %} 
 <div class="box" data-aos="flip-right">
   <img src="{%static 'Images/Screenshot 2021-12-06 at 15-10-44 Matina Bajracharya ( matinaaa _) • Instagram photos and videos.png' %}" alt="">
   <div class="info">
@@ -202,10 +203,10 @@
     <p><i class="fas fa-quote-left"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quae minima pariatur consequatur odio veniam nam dolorum enim eum a?<i class="fas fa-quote-right"></i></p>
     <h2>--Daniel Prajapati</h2>
   </div>
-</div>
+</div> {% endcomment %}
 
 </div>
-
+{% endfor %}
 </section>
 
 <!-- testimonials section ends -->

@@ -49,12 +49,14 @@
 
     <div class="swiper-container home-slider">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="{% static 'Images/event1.jpg' %}" alt=""></div>
-            <div class="swiper-slide"><img src="{% static 'Images/event2.jpg' %}" alt=""></div>
+            {% for eventsliders in eventslider %}
+            <div class="swiper-slide"><img src="{{ eventsliders.eventimg.url }}" alt=""></div>
+            {% comment %} <div class="swiper-slide"><img src="{% static 'Images/event2.jpg' %}" alt=""></div>
             <div class="swiper-slide"><img src="{% static 'Images/event3.jpg' %}" alt=""></div>
             <div class="swiper-slide"><img src="{% static 'Images/event4.jpg' %}" alt=""></div>
             <div class="swiper-slide"><img src="{% static 'Images/event5.jpg' %}" alt=""></div>
-            <div class="swiper-slide"><img src="{% static 'Images/event6.jpg' %}" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'Images/event6.jpg' %}" alt=""></div> {% endcomment %}
+            {% endfor %}
         </div>
     </div>
 

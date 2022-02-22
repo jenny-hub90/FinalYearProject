@@ -1,6 +1,6 @@
 from multiprocessing import context
 from django.shortcuts import render, redirect
-from .models import LatestEvents, Post, slider, review, Question, Respose
+from .models import LatestEvents, Post, slider, review, Question, Respose, Eventslider
 from django.views.generic import ListView, DetailView
 from .forms import NewQuestionForm, NewResoponseForm, NewReplyForm
 
@@ -20,7 +20,11 @@ def ForgotPassword(request):
 
 def Home(request):
    secs = LatestEvents.objects.all()
-   return render(request,'Home.html', {'secs': secs})
+   students= review.objects.all()
+   return render(request,'Home.html', {
+       'secs': secs,
+       'students':students,
+   })
 
 def newQuestionPage(request):
     form = NewQuestionForm()
@@ -95,7 +99,8 @@ def replyPage(request):
 
 
 def Event(request):
-    return render(request,'Event.html')
+    eventslider= Eventslider.objects.all()
+    return render(request,'Event.html',{'eventslider':eventslider})
 
 
 def changepassword(request):
