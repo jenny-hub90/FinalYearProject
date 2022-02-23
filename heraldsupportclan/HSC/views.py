@@ -1,7 +1,8 @@
 from multiprocessing import context
+from re import template
 from django.shortcuts import render, redirect
-from .models import LatestEvents, Post, slider, review, Question, Respose, Eventslider
-from django.views.generic import ListView, DetailView
+from .models import EventReview, LatestEvents, Post, Toppost, slider, review, Question, Respose, Eventslider, Eventabout
+from django.views.generic import ListView, DetailView, CreateView
 from .forms import NewQuestionForm, NewResoponseForm, NewReplyForm
 
 
@@ -100,7 +101,13 @@ def replyPage(request):
 
 def Event(request):
     eventslider= Eventslider.objects.all()
-    return render(request,'Event.html',{'eventslider':eventslider})
+    eventabout= Eventabout.objects.all()
+    eventreview = EventReview.objects.all()
+    return render(request,'Event.html',{
+        'eventslider':eventslider,
+        'eventabout': eventabout,
+        'eventreview': eventreview,
+        })
 
 
 def changepassword(request):
@@ -119,4 +126,7 @@ class Newsletter(ListView):
     template_name = 'Newsletter.html'
     ordering = ['-post_date']
 
+# class Newsletter(CreateView):
+#    model = Toppost
+#    template_name = 'Newsletter.html'
 

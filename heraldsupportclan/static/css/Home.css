@@ -540,107 +540,41 @@ section{
   #testimonial .box-container .box:nth-child(even) {
     float: center;
   }
-  
-  #contact {
-    display: -ms-grid;
-    display: grid;
-    place-items: center;
-    background: -webkit-gradient(linear, left top, left bottom, from(#00B894), to(#00B894)), url(../Images/service1.jpg) no-repeat;
-    background: linear-gradient(#75bf44, #75bf44), url(../Images/service1.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-blend-mode: screen;
-  }
-  
-  #contact .heading {
-    font-size: 4rem;
-    padding-top: 5rem;
-    margin: 2rem 0;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    color: #333;
-  }
-  
-  #contact .heading::after {
-    content: '';
-    position: absolute;
-    bottom: -1.5rem;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    height: .3rem;
-    width: 60%;
-    border-radius: 5rem;
-    background: #333;
-  }
-  
-  #contact .heading::after {
-    background: #fff;
-  }
-  
-  #contact form {
-    background: #fff;
-    padding-top: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding: 1rem;
+
+.about .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:1.5rem;
+}
+
+.about .row .image{
+    flex:1 1 45rem;
+    padding:1rem;
+}
+
+.about .row .image img{ 
+    width: 100%;
     border-radius: .5rem;
-    -webkit-box-shadow: 0 0 1rem #333;
-            box-shadow: 0 0 1rem #333;
-  }
-  
-  #contact form .inputBox {
-    text-align: center;
-    position: relative;
-  }
-  
-  #contact form .inputBox input, #contact form .inputBox textarea {
-    outline: none;
-    padding: 0 1rem;
-    height: 4rem;
-    width: 90%;
-    border-radius: .5rem;
-    border: .2rem solid #333;
+    border:1rem solid #333;
+}
+
+.about .row .content{
+    flex:1 1 45rem;
+}
+
+.about .row .content h3{
+    font-size: 3.5rem;
+    color:#000;
+}
+
+.about .row .content p{
     font-size: 1.5rem;
-    font-weight: bold;
-    margin: 2rem 0;
-  }
-  
-  #contact form .inputBox input:focus ~ h3,
-  #contact form .inputBox input:valid ~ h3, #contact form .inputBox textarea:focus ~ h3,
-  #contact form .inputBox textarea:valid ~ h3 {
-    top: -1rem;
-    left: 5.9%;
-    color: #ff3300;
-  }
-  
-  #contact form .inputBox input:focus, #contact form .inputBox textarea:focus {
-    border-color: #00B894;
-  }
-  
-  #contact form .inputBox textarea {
-    resize: none;
-    padding: 1rem;
-    height: 20rem;
-  }
-  
-  #contact form .inputBox input[type="submit"] {
-    border: none;
-    background: #75bf44;
-    color: #fff;
-  }
-  
-  #contact form .inputBox input[type="submit"]:hover {
-    background: #333;
-  }
-  
-  #contact form .inputBox h3 {
-    position: absolute;
-    top: 3rem;
-    left: 8%;
-  }
+    color:#333;
+    padding:1rem 0;
+    line-height: 2;
+}
+
   
   #footer {
     width: 100%;

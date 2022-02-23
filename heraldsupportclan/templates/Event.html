@@ -69,23 +69,25 @@
 
 <section class="about" id="about">
 
-<h1 class="heading"><span>about</span> us </h1>
+<h1 class="heading"><span>about us</span>  </h1>
 
+{% for eventabouts in eventabout %}
 <div class="row">
-
+    
     <div class="image">
-        <img src="{% static 'Images/about.jpg' %}" alt="">
+        <img src="{{ eventabouts.aboutimage.url}}" alt="">
     </div>
 
     <div class="content">
         <h3>Learn about events announcement</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam labore fugiat ut esse perferendis perspiciatis provident dolores fuga in facilis culpa possimus, quia praesentium itaque, sapiente quasi harum rem asperiores.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat vero expedita incidunt provident quibusdam aut odit, numquam nesciunt similique nisi.</p>
+        <p>{{ eventabouts.aboutdesc }}</p>
+        <p>{{ eventabouts.moredesc }}</p>
         <a href="#" class="btn">contact us</a>
     </div>
 
 </div>
 
+{% endfor %}
 </section>
 
 <!-- about section ends -->
@@ -198,25 +200,29 @@
 
 <section class="reivew" id="review"> 
     
-    <h1 class="heading">students's <span>review</span></h1>
+    <h1 class="heading"><span>students review</span></h1>
+
+    
 
     <div class="review-slider swiper-container">
 
         <div class="swiper-wrapper">
+            {% for eventreviews in eventreview %}
 
             <div class="swiper-slide box">
                 <i class="fas fa-quote-right"></i>
                 <div class="user">
-                    <img src="{% static 'Images/pic-1.png' %}" alt="">
+                    <img src="{{ eventreviews.studentimage.url }}" alt="">
                     <div class="user-info">
-                        <h3>john deo</h3>
-                        <span>happy students</span>
+                        <h3>{{ eventreviews.studentname }}</h3>
+                        <span>{{ eventreviews.studentcourse }}</span>
                     </div>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolor dicta cum. Eos beatae eligendi, magni numquam nemo sed ut corrupti, ipsam iure nisi unde et assumenda perspiciatis voluptatibus nihil.</p>
+                <p>{{ eventreviews.studentreview }}</p>
             </div>
+            {% endfor %}
 
-            <div class="swiper-slide box">
+            {% comment %} <div class="swiper-slide box">
                 <i class="fas fa-quote-right"></i>
                 <div class="user">
                     <img src="{% static 'Images/pic-2.png' %}" alt="">
@@ -250,7 +256,7 @@
                     </div>
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolor dicta cum. Eos beatae eligendi, magni numquam nemo sed ut corrupti, ipsam iure nisi unde et assumenda perspiciatis voluptatibus nihil.</p>
-            </div>
+            </div> {% endcomment %}
 
         </div>
 
