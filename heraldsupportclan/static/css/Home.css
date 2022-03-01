@@ -486,7 +486,7 @@ section{
   }
   
   #testimonial .box-container .box {
-    max-width: 100rem;
+    max-width: 60rem;
     background: #fff;
     display: -webkit-box;
     display: -ms-flexbox;

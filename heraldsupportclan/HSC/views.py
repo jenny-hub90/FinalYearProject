@@ -1,9 +1,8 @@
-from multiprocessing import context
-from re import template
-from django.shortcuts import render, redirect
-from .models import EventReview, LatestEvents, Post, Toppost, slider, review, Question, Respose, Eventslider, Eventabout
-from django.views.generic import ListView, DetailView, CreateView
-from .forms import NewQuestionForm, NewResoponseForm, NewReplyForm
+from django.shortcuts import render
+from .models import EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout
+from django.views.generic import ListView
+
+
 
 
 # Create your views here.
@@ -27,75 +26,14 @@ def Home(request):
        'students':students,
    })
 
-def newQuestionPage(request):
-    form = NewQuestionForm()
-    
-    if request.method == 'POST':
-        try:
-            form = NewQuestionForm(request.POST)
-            if form.is_valid():
-                question = form.save(commit=False)
-                question.author = request.user
-                question.save()
-        except Exception as e:
-            print(e)
+def Forums(request):
+    return render(request,'Forums.html')
 
-    context={'form': form}
-    return render(request, 'new-question.html', context)
+def detail(request):
+    return render(request,'detail.html')
 
-def F(request):
-    questions = Question.objects.all().order_by('-created_at')
-    context = {
-        'questions': questions
-    }
-    return render(request,'F.html', context)
-
-
-def questionPage(request, id):
-    response_form = NewResoponseForm()
-    reply_form = NewReplyForm()
-
-    if request.method == 'POST':
-        try:
-            response_form = NewResoponseForm(request.POST)
-            if response_form.is_valid():
-                response = response_form.save(commit=False)
-                response.user = request.user
-                response.question = Question(id=id)
-                response.save()
-                return redirect('/question/'+ str(id)+ '#'+ str(response.id))
-        except Exception as e:
-            print(e)
-            raise
-
-
-    question = Question.objects.get(id=id)
-    context ={
-        'question': question,
-        'response_form':response_form,
-        'reply_form': reply_form
-    }
-    return render(request, 'question.html', context)
-
-def replyPage(request):
-    if request.method == 'POST':
-        try:
-            form = NewReplyForm(request.POST)
-            if form.is_valid():
-                question_id = request.POST.get('question')
-                parent_id = request.POST.get('parent')
-                reply = form.save(commit=False)
-                reply.user = request.user
-                reply.question = Question(id=question_id)
-                reply.parent = Respose(id=parent_id)
-                reply.save()
-                return redirect('/question/'+str(question_id)+'#'+str(reply.id))
-        except Exception as e:
-            print(e)
-            raise
-
-    return redirect('F')
-
+def posts(request):
+    return render(request,'posts.html')
 
 
 
@@ -126,7 +64,5 @@ class Newsletter(ListView):
     template_name = 'Newsletter.html'
     ordering = ['-post_date']
 
-# class Newsletter(CreateView):
-#    model = Toppost
-#    template_name = 'Newsletter.html'
+
 

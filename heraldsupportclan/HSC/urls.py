@@ -7,11 +7,9 @@ from .views import Newsletter
 urlpatterns = [
    
     path('',views.Home, name='Home'),
-    path('F',views.F, name='F'),
-    path('new-question', views.newQuestionPage, name='new-question'),
-    path ('question/<int:id>', views.questionPage, name='question'),
-    path ('reply', views.replyPage, name='reply'),
-    path('register/',views.registerPage, name='register'),
+    path('Forums',views.Forums, name='Forums'),
+    path('detail',views.detail, name='detail'),
+    path('posts',views.posts, name='posts'),
     path('login/',views.loginPage, name='login'),
     path('Event',views.Event, name='Event'),
     path('Newsletter', Newsletter.as_view(), name="Newsletter"),
@@ -32,5 +30,6 @@ urlpatterns = [
     
     path('eventinfo', views.eventinfo, name='eventinfo'),
     path('studentreview', views.studentreview, name='studentreview'),
+    
     
 ]

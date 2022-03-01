@@ -29,7 +29,9 @@
   <nav class="navbar">
     <a href="{% url 'Home' %}">Home</a>
     {% if user.is_authenticated %}
-    <a href="{% url 'F' %}">Forum</a>
+    <a href="{% url 'Forums' %}">Forums</a>
+    <a href="{% url 'posts' %}">Posts</a>
+    <a href="{% url 'detail' %}">Detail</a>
     <a href="{% url 'Event' %}">Events</a>
     <a href="{% url 'Newsletter' %}">Newsletter</a>
     {% endif %}
@@ -170,43 +172,43 @@
 
 <h1 class="heading">{% if user.is_authenticated%}<a href="{% url 'studentreview' %}">{% endif %}what our students says</a></h1>
 
-{% for student in students %}
+{% for student in students %} 
 <div class="box-container">
 
-<div class="box" data-aos="fade-up-right">
+<div class="box" data-aos="flip-left">
   <img src="{{ student.studentimage.url }}" alt="">
   <div class="info">
     <p><i class="fas fa-quote-left"></i>{{student.studentreview}}<i class="fas fa-quote-right"></i></p>
     <h2>--{{student.studentname}}</h2>
   </div>
 </div>
-{% comment %} 
-<div class="box" data-aos="flip-right">
-  <img src="{%static 'Images/Screenshot 2021-12-06 at 15-10-44 Matina Bajracharya ( matinaaa _) • Instagram photos and videos.png' %}" alt="">
+ 
+{% comment %} <div class="box" data-aos="flip-right">
+  <img src="{{ student.studentimage.url }}" alt="">
   <div class="info">
-    <p><i class="fas fa-quote-left"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quae minima pariatur consequatur odio veniam nam dolorum enim eum a?<i class="fas fa-quote-right"></i></p>
-    <h2>--Matina Bajracharya</h2>
+    <p><i class="fas fa-quote-left"></i>{{student.studentreview}}<i class="fas fa-quote-right"></i></p>
+    <h2>--{{student.studentname}}</h2>
   </div>
 </div>
 
 <div class="box" data-aos="flip-left">
-  <img src="{%static 'Images/Screenshot 2021-12-06 at 15-11-27 Binil Baidya ( __binil__) • Instagram photos and videos.png' %}" alt="">
+  <img src="{{ student.studentimage.url }}" alt="">
   <div class="info">
-    <p><i class="fas fa-quote-left"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quae minima pariatur consequatur odio veniam nam dolorum enim eum a?<i class="fas fa-quote-right"></i></p>
-    <h2>--Binil Baidya</h2>
+    <p><i class="fas fa-quote-left"></i>{{student.studentreview}}<i class="fas fa-quote-right"></i></p>
+    <h2>--{{student.studentname}}</h2>
   </div>
 </div>
 
 <div class="box" data-aos="flip-right">
-  <img src="{%static 'Images/Screenshot 2021-12-06 at 15-14-47 Daniel Man Prajapati ( dan_daniels_dj) • Instagram photos and videos.png' %}" alt="">
+  <img src="{{ student.studentimage.url }}" alt="">
   <div class="info">
-    <p><i class="fas fa-quote-left"></i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quae minima pariatur consequatur odio veniam nam dolorum enim eum a?<i class="fas fa-quote-right"></i></p>
-    <h2>--Daniel Prajapati</h2>
+    <p><i class="fas fa-quote-left"></i>{{student.studentreview}}<i class="fas fa-quote-right"></i></p>
+    <h2>--{{student.studentname}}</h2>
   </div>
-</div> {% endcomment %}
+</div>  {% endcomment %}
 
 </div>
-{% endfor %}
+ {% endfor %} 
 </section>
 
 <!-- testimonials section ends -->
@@ -229,7 +231,7 @@
         <h3>Learn more about our goals</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam labore fugiat ut esse perferendis perspiciatis provident dolores fuga in facilis culpa possimus, quia praesentium itaque, sapiente quasi harum rem asperiores.</p>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat vero expedita incidunt provident quibusdam aut odit, numquam nesciunt similique nisi.</p>
-        <a href="#" class="btn">contact us</a>
+        <a href="#" class="btn">Our Team</a>
     </div>
 
 </div>
