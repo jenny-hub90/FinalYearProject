@@ -2,14 +2,15 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 
 from . import views
-from .views import Newsletter
+from .views import Newsletter, detail
+
 
 urlpatterns = [
    
     path('',views.Home, name='Home'),
     path('Forums',views.Forums, name='Forums'),
-    path('detail',views.detail, name='detail'),
-    path('posts',views.posts, name='posts'),
+    path('detail/<slug>/', views.detail, name='detail'),
+    path('posts/<slug>/', views.posts, name='posts'),
     path('login/',views.loginPage, name='login'),
     path('Event',views.Event, name='Event'),
     path('Newsletter', Newsletter.as_view(), name="Newsletter"),

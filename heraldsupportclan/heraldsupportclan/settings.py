@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'HSC.apps.HscConfig',
     'accounts',
+    'tinymce',
+    'hitcount',
+    'taggit',
 ]
 
 MIDDLEWARE = [

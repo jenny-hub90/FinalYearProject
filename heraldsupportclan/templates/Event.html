@@ -28,8 +28,8 @@
     <nav class="navbar">
       <a href="{% url 'Home' %}">Home</a>
       <a href="{% url 'Forums' %}">Forums</a>
-      <a href="{% url 'posts' %}">Posts</a>
-      <a href="{% url 'detail' %}">Detail</a>
+      {% comment %} <a href="{% url 'posts' %}">Posts</a> {% endcomment %}
+      {% comment %} <a href="{% url 'detail' %}">Detail</a> {% endcomment %}
       <a href="{% url 'Event' %}">Events</a>
       <a href="{% url 'Newsletter' %}">Newsletter</a>
     </nav>

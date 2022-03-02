@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from .models import EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout
+from django.shortcuts import render, get_object_or_404
+from .models import EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout, Category, ForumPost, Author
 from django.views.generic import ListView
+from .utils import update_views
 
 
 
@@ -27,13 +28,30 @@ def Home(request):
    })
 
 def Forums(request):
-    return render(request,'Forums.html')
+    forums = Category.objects.all()
+    context = {
+        "forums":forums,
+    }
+    return render(request,'Forums.html',context)
 
-def detail(request):
-    return render(request,'detail.html')
+def detail(request, slug):
+    post = get_object_or_404(ForumPost, slug=slug)
+    context={
+        "post":post
+    }
+    update_views(request, post)
 
-def posts(request):
-    return render(request,'posts.html')
+    return render(request,'detail.html', context)
+
+def posts(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    posts = ForumPost.objects.filter(approved=True, categories=category)
+
+    context = {
+        "posts":posts,
+        "forum": category,
+    }
+    return render(request,'posts.html',context)
 
 
 

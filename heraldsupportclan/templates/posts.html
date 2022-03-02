@@ -1,4 +1,5 @@
 {% load static %}
+{% load hitcount_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +21,8 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="{% url 'Home' %}">Home</a></li>
                     <li class="nav-item"><a href="{% url 'Forums' %}">Forums</a></li>  
-                    <li class="nav-item"><a href="{% url 'posts' %}">Posts</a></li>
-                    <li class="nav-item"><a href="{% url 'detail' %}">Detail</a></li>
+                    {% comment %} <li class="nav-item"><a href="{% url 'posts' %}">Posts</a></li> {% endcomment %}
+                    {% comment %} <li class="nav-item"><a href="{% url 'detail' %}">Detail</a></li> {% endcomment %}
                     <li class="nav-item"><a href="{% url 'Event' %}">Events</a></li>
                     <li class="nav-item"><a href="{% url 'Newsletter' %}">Newsletter</a></li>
                 </ul>
@@ -45,7 +46,7 @@
     <div class="container">
         <!--Navigation-->
         <div class="navigate">
-            <span><a href="">MyForum - Forums</a> >> <a href="">random subforum</a></span>
+            <span><a href="{% url 'Forums' %}">MyForum - Forums</a> >> <a href="{{forum.get_url}}">{{forum.title}}</a></span>
         </div>
         <!--Display posts table-->
         <div class="posts-table">
@@ -55,177 +56,27 @@
                 <div class="replies">Replies/Views</div>
                 <div class="last-reply">Last Reply</div>
             </div>
+
+
+            {% for post in posts %}
             <div class="table-row">
                 <div class="status"><i class="fa fa-fire"></i></div>
                 <div class="subjects">
-                    <a href="">Is learning Python on 2021 worth it?</a>
+                    <a href="{{post.get_url}}">{{post.title}}</a>
                     <br>
-                    <span>Started by <b><a href="">User</a></b> .</span>
+                    <span>Started by <b><a href="">{{post.user.fullname|title}}</a></b> .</span>
                 </div>
                 <div class="replies">
-                    2 replies <br> 125 views
+                    {{post.num_comments}} comments <br> {% get_hit_count for post %} views
                 </div>
 
                 <div class="last-reply">
-                    Oct 12 2021
-                    <br>By <b><a href="">User</a></b>
+                    {{post.last_reply.date|date}}
+                    <br>By <b><a href="">{{post.last_reply.user.fullname|title}}</a></b>
                 </div>
             </div>
-            <!--starts here-->
-            <div class="table-row">
-                <div class="status"><i class="fa fa-fire"></i></div>
-                <div class="subjects">
-                    <a href="">Is learning Python on 2021 worth it?</a>
-                    <br>
-                    <span>Started by <b><a href="">User</a></b> .</span>
-                </div>
-                <div class="replies">
-                    2 replies <br> 125 views
-                </div>
-
-                <div class="last-reply">
-                    Oct 12 2021
-                    <br>By <b><a href="">User</a></b>
-                </div>
-            </div>
-
-            <div class="table-row">
-                <div class="status"><i class="fa fa-fire"></i></div>
-                <div class="subjects">
-                    <a href="">Is learning Python on 2021 worth it?</a>
-                    <br>
-                    <span>Started by <b><a href="">User</a></b> .</span>
-                </div>
-                <div class="replies">
-                    2 replies <br> 125 views
-                </div>
-
-                <div class="last-reply">
-                    Oct 12 2021
-                    <br>By <b><a href="">User</a></b>
-                </div>
-            </div>
-
-            <div class="table-row">
-                <div class="status"><i class="fa fa-book"></i></div>
-                <div class="subjects">
-                    <a href="">Is learning Python on 2021 worth it?</a>
-                    <br>
-                    <span>Started by <b><a href="">User</a></b> .</span>
-                </div>
-                <div class="replies">
-                    2 replies <br> 125 views
-                </div>
-
-                <div class="last-reply">
-                    Oct 12 2021
-                    <br>By <b><a href="">User</a></b>
-                </div>
-            </div>
-
-            <div class="table-row">
-                <div class="status"><i class="fa fa-rocket"></i></div>
-                <div class="subjects">
-                    <a href="">Is learning Python on 2021 worth it?</a>
-                    <br>
-                    <span>Started by <b><a href="">User</a></b> .</span>
-                </div>
-                <div class="replies">
-                    2 replies <br> 125 views
-                </div>
-
-                <div class="last-reply">
-                    Oct 12 2021
-                    <br>By <b><a href="">User</a></b>
-                </div>
-            </div>
-
-            <div class="table-row">
-                <div class="status"><i class="fa fa-frown-o"></i></div>
-                <div class="subjects">
-                    <a href="">Is learning Python on 2021 worth it?</a>
-                    <br>
-                    <span>Started by <b><a href="">User</a></b> .</span>
-                </div>
-                <div class="replies">
-                    2 replies <br> 125 views
-                </div>
-
-                <div class="last-reply">
-                    Oct 12 2021
-                    <br>By <b><a href="">User</a></b>
-                </div>
-            </div>
-
-
-            <div class="table-row">
-                <div class="status"><i class="fa fa-fire"></i></div>
-                <div class="subjects">
-                    <a href="">Is learning Python on 2021 worth it?</a>
-                    <br>
-                    <span>Started by <b><a href="">User</a></b> .</span>
-                </div>
-                <div class="replies">
-                    2 replies <br> 125 views
-                </div>
-
-                <div class="last-reply">
-                    Oct 12 2021
-                    <br>By <b><a href="">User</a></b>
-                </div>
-            </div>
-
-            <div class="table-row">
-                <div class="status"><i class="fa fa-fire"></i></div>
-                <div class="subjects">
-                    <a href="">Is learning Python on 2021 worth it?</a>
-                    <br>
-                    <span>Started by <b><a href="">User</a></b> .</span>
-                </div>
-                <div class="replies">
-                    2 replies <br> 125 views
-                </div>
-
-                <div class="last-reply">
-                    Oct 12 2021
-                    <br>By <b><a href="">User</a></b>
-                </div>
-            </div>
-
-            <div class="table-row">
-                <div class="status"><i class="fa fa-lock"></i></div>
-                <div class="subjects">
-                    <a href="">Is learning Python on 2021 worth it?</a>
-                    <br>
-                    <span>Started by <b><a href="">User</a></b> .</span>
-                </div>
-                <div class="replies">
-                    2 replies <br> 125 views
-                </div>
-
-                <div class="last-reply">
-                    Oct 12 2021
-                    <br>By <b><a href="">User</a></b>
-                </div>
-            </div>
-
-            <div class="table-row">
-                <div class="status"><i class="fa fa-fire"></i></div>
-                <div class="subjects">
-                    <a href="">Is learning Python on 2021 worth it?</a>
-                    <br>
-                    <span>Started by <b><a href="">User</a></b> .</span>
-                </div>
-                <div class="replies">
-                    2 replies <br> 125 views
-                </div>
-
-                <div class="last-reply">
-                    Oct 12 2021
-                    <br>By <b><a href="">User</a></b>
-                </div>
-            </div>
-            <!--ends here-->
+            {% endfor %}
+           
         </div>
         <!--Pagination starts-->
             <div class="pagination">
