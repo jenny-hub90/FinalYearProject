@@ -25,13 +25,12 @@
 <header class="header">
     
   <a href="#" class="logo"><span>Herald</span>SupportClan</a>
-
+  {% if user.is_authenticated %}
+  {% endif %}
   <nav class="navbar">
     <a href="{% url 'Home' %}">Home</a>
     {% if user.is_authenticated %}
     <a href="{% url 'Forums' %}">Forums</a>
-    {% comment %} <a href="{% url 'posts' %}">Posts</a> {% endcomment %}
-    {% comment %} <a href="{% url 'detail' %}">Detail</a> {% endcomment %}
     <a href="{% url 'Event' %}">Events</a>
     <a href="{% url 'Newsletter' %}">Newsletter</a>
     {% endif %}
@@ -58,7 +57,9 @@
 
   {% if user.is_authenticated %}
   <h2> Hello, {{user.username}}</h2>
-  <a href="accounts/logout"><button> Logout now>></button></a>  
+  <a href="accounts/logout"><button> Logout now>></button></a>
+  <a href="update_profile"><button>Update Profile</button></a>  
+  <a href="{% url 'create_post' %}"><button>Create post</button></a>  
   {% else %}
   <a href="{% url 'register'  %}"><button> Register now>></button></a>  
   <a href="{% url 'login'  %}"><button> LogIn now>></button></a>  

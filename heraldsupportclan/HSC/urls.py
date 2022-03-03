@@ -2,7 +2,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 
 from . import views
-from .views import Newsletter, detail
+from .views import Newsletter, create_post
 
 
 urlpatterns = [
@@ -31,6 +31,7 @@ urlpatterns = [
     
     path('eventinfo', views.eventinfo, name='eventinfo'),
     path('studentreview', views.studentreview, name='studentreview'),
-    
+    path('update_profile/', views.update_profile, name='update_profile'),
+    path('create_post', create_post, name="create_post"),
     
 ]

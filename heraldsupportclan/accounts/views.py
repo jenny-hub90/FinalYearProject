@@ -8,6 +8,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
+
+
 # Create your views here.
 
 def registerPage(request):
@@ -35,16 +37,18 @@ def loginPage(request):
 
         if user is not None:
             login(request, user)
-            return redirect('Home')
+            return redirect('update_profile')
 
     context ={}
     return render(request,'accounts/login.html', context)
 
- 
+
 @login_required(login_url='register')
 def logoutUser(request):
 	logout(request)
 	return redirect('Home')
+
+
 
 class UserRegisterView(generic.CreateView):
      form_class = SignUpForm
