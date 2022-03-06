@@ -60,7 +60,7 @@ User = get_user_model()
 
 class Author(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    fullname = models.CharField(max_length=40, blank=False)
+    fullname = models.CharField(max_length=40, blank=True)
     slug = models.SlugField(max_length=400, unique=True, blank=True)
     bio = HTMLField()
     points = models.IntegerField(default=0)
@@ -68,6 +68,10 @@ class Author(models.Model):
     
     def __str__(self):
         return self.fullname
+    
+    @property
+    def num_posts(self):
+        return ForumPost.objects.filter(user=self).count()
 
 
     def save(self,*args, **kwargs):

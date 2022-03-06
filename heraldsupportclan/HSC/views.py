@@ -1,9 +1,9 @@
 from multiprocessing import context
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout, Category, ForumPost, Author
+from .models import Author, EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout, Category, ForumPost
 from django.views.generic import ListView
 from .utils import update_views
-from HSC.forms import UpdateForm,ForumPostForm
+from .forms import UpdateForm,ForumPostForm
 from django.contrib.auth.models import User
 
 
@@ -31,7 +31,7 @@ def Home(request):
    return render(request,'Home.html', {
        'secs': secs,
        'students':students,
-   })
+   })  
 
 def Forums(request):
     forums = Category.objects.all()

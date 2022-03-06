@@ -445,7 +445,7 @@ section{
   #service .box-container .box:nth-child(2) {
     float: right;
   }
-  
+
   #testimonial {
     display: -ms-grid;
     display: grid;
@@ -538,9 +538,11 @@ section{
   }
   
   #testimonial .box-container .box:nth-child(even) {
-    float: center;
+    float: right;
   }
-
+  
+  
+  
 .about .row{
     display: flex;
     align-items: center;

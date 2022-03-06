@@ -38,49 +38,44 @@
 </header>
 
 <!-- header section ends -->
-<section1 class="sec-01">
-    <div class="container">
-      <h2 class="main-title">Latest<span>News</span></h2>
-      <div class="content">
+<section class="container">
+      <h2 class="head">Latest<span>News</span></h2>
+      <div class="row">
         
-        <div class="image">
+        <div class="col-6">
           <img src="{% static 'Images/News1.jpg' %}" alt="">
         </div>
-        <div class="text-box">
+        <div class="col-6">
           <h3>Lorem Ipsum</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
           aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
           aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         </div>
       </div>
-
-      
-    </div>
-  </section1>
-  {% for post in object_list %}
-  <section1 class="sec-02">
-    <div class="container">
-     
-      <h3 class="section-title">{{ post.title }}</h3>
-      <h3>By: {{ post.author.first_name }} 
-        {{ post.author.last_name }} - 
-        {{ post.post_date }} </h3><br/>
-<hr></hr>
-<br/>
-      <div class="content">
-        <div class="image">
-        {% if post.header_image %}
-          <img src="{{ post.header_image.url }}" alt="">
-          {% endif %}
+    </section>
+    <section class="container">
+      <div class="row">
+    {% for post in object_list %}
+        <div class="col-8">
+          <div class="row">
+            <p>{{ post.title }}</p>
+            <p> By: {{ post.author.first_name }} 
+            {{ post.author.last_name }} - 
+            {{ post.post_date }}</p>
+          </div>
+          <div class="image">
+          {% if post.header_image %}
+            <img src="{{ post.header_image.url }}" alt="">
+            {% endif %}
+          </div>
+          <div class="col-8">
+            <h4 class="info-title">Description</h4>
+            <p>{{ post.body }}</p>
+          </div>
         </div>
-        <div class="info">
-          <h4 class="info-title">Description</h4>
-          <p>{{ post.body }}</p>
-        </div>
-      </div>
-    </div>
-  </section1>
   {% endfor %}
+</div>
+</section>
 
 
 <!-- footer section starts  -->

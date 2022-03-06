@@ -9,6 +9,7 @@ body{
 
 	background-color: #f1f1f1;
 }
+
 *{
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
@@ -19,8 +20,11 @@ body{
     text-transform: capitalize;
     transition: .2s linear;
 }
-
-html{
+img {
+    width: 100%;
+    height: auto;
+  }
+ html{
     font-size: 62.5%;
     overflow-x: hidden;
     scroll-padding-top: 7rem;
@@ -112,37 +116,107 @@ section{
     display: none;
 }
 
-
-
-section1{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 80px 100px;
-    color: #000;
+.row:after {
+    content: "";
+    clear: both;
+    display: table;
   }
   
-  .container{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  [class*="col-"] {
+    float: left;
+    padding: 15px;
+    width: 100%;
   }
   
-  .main-title{
-    font-size: 4em;
-    margin-bottom: 50px;
+  @media only screen and (min-width: 600px) {
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+  }
+.container{
+    max-width: 100%;
+}
+.post{
+    margin: 20;
 }
 
-  .main-title span{
+@media only screen and (max-width:768px){
+	.left-column,.right-column{
+        width: 100%;
+        padding: 0px;
+    }
+
+    #menu-bars{
+        display: initial;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top:100%; left:0; right:0;
+        border-top: .1rem solid #222;
+        background: #333;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .fa-times{
+        transform: rotate(180deg);
+    }
+
+    .header .navbar a{
+        display: flex;
+        background:#FFF;
+        border-radius: .5rem;
+        padding:1.3rem;
+        margin:1.3rem;
+        font-size: 2rem;
+    }
+    .home .content h3{
+        font-size: 4rem;
+    }
+
+}
+
+.head{
+    margin-top: 50px;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.head span{
     color:var(--main-color);
   }
-  
+/*
   .content{
     position: relative;
-    width: 1150px;
+    /* //width: 1150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -235,15 +309,8 @@ footer{
 	text-align: center;
 	margin-top: 20px;
 }
+ */
 
-/*responsive */
-
-@media(max-width:800px){
-	.left-column,.right-column{
-    width: 100%;
-    padding: 0px;
-	}
-}
 
 .footer{
     background:#333;
@@ -310,81 +377,6 @@ footer{
     animation: spin 4s linear infinite;
 }
 
-/* @keyframes spin {
-    0%{
-        transform: rotate(360deg);
-    }
-} */
 
-
-
-
-/* media queries  */
-
-@media (max-width:991px){
-
-    html{
-        font-size: 55%;
-    }
-
-    .header{
-        padding:1.5rem 2rem;
-    }
-
-    section{
-        padding:2rem;
-    }
-
-}
-
-@media (max-width:768px){
-
-    #menu-bars{
-        display: initial;
-    }
-
-    .header .navbar{
-        position: absolute;
-        top:100%; left:0; right:0;
-        border-top: .1rem solid #222;
-        background: #333;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    }
-
-    .header .navbar.active{
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    }
-
-    .fa-times{
-        transform: rotate(180deg);
-    }
-
-    .header .navbar a{
-        display: flex;
-        background:#FFF;
-        border-radius: .5rem;
-        padding:1.3rem;
-        margin:1.3rem;
-        font-size: 2rem;
-    }
-
-    .home .content h3{
-        font-size: 4rem;
-    }
-
-}
-
-@media (max-width:450px){
-
-    html{
-        font-size: 50%;
-    }
-
-    .home .home-slider .swiper-slide{
-        width: 27rem;
-    }
-
-   
-}
 
 
