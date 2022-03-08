@@ -175,6 +175,15 @@ section{
 .header .navbar a:hover{
   color:var(--main-color);
 }
+/* .header .navbar .active{
+  color:#75bf44;
+  border-bottom:5px solid  #fff;
+  width: 100%;
+  border-radius: 1px;
+  transition:  0.5s ease;
+
+} */
+
 
 #menu-bars{
   font-size: 3rem;

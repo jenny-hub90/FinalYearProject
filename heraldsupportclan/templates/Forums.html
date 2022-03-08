@@ -78,8 +78,8 @@
         <div class="chart">
             MyForum - Stats &nbsp;<i class="fa fa-bar-chart"></i>
         </div>
-        <span><u>5,369</u> Posts in <u>48</u> Topics by <u>8,124</u> Members.</span><br>
-        <span>Latest post: <b><a href="">Random post</a></b> on Dec 15 2021 By <a href="">RandomUser</a></span>.<br>
+        <span><u>{{num_posts}}</u> Posts in <u>{{num_categories}}</u> Topics by <u>{{num_users}}</u> Members.</span><br>
+        <span>Latest post: <b><a href="{{last_post.get_url}}">{{last_post.title}}</a></b> on {{last_post.date|date}} <a href="">{{last_post.user.fullname|title}}</a></span>.<br>
         <span>Check <a href="">the latest posts</a> .</span><br>
     </div>
 

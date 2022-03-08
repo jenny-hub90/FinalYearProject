@@ -28,14 +28,13 @@
   {% if user.is_authenticated %}
   {% endif %}
   <nav class="navbar">
-    <a href="{% url 'Home' %}">Home</a>
+    <a  href="{% url 'Home' %}">Home</a>
     {% if user.is_authenticated %}
     <a href="{% url 'Forums' %}">Forums</a>
     <a href="{% url 'Event' %}">Events</a>
-    <a href="{% url 'Newsletter' %}">Newsletter</a>
+    <a  href="{% url 'Newsletter' %}">Newsletter</a>
     {% endif %}
   </nav>
-
   <div id="menu-bars" class="fas fa-bars"></div>
 
 </header>

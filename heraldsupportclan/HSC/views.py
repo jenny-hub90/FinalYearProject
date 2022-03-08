@@ -1,10 +1,11 @@
 from multiprocessing import context
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Author, EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout, Category, ForumPost
+from .models import Author, EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout, Category, ForumPost,Comment,Reply
 from django.views.generic import ListView
 from .utils import update_views
 from .forms import UpdateForm,ForumPostForm
 from django.contrib.auth.models import User
+
 
 
 
@@ -35,13 +36,37 @@ def Home(request):
 
 def Forums(request):
     forums = Category.objects.all()
+    num_posts = ForumPost.objects.all().count()
+    num_users = User.objects.all().count()
+    num_categories = forums.count()
+    last_post = ForumPost.objects.latest("date")
+
+
     context = {
         "forums":forums,
+        "num_posts":num_posts,
+        "num_users":num_users,
+        "num_categories":num_categories,
+        "last_post":last_post
     }
     return render(request,'Forums.html',context)
 
 def detail(request, slug):
     post = get_object_or_404(ForumPost, slug=slug)
+    author = Author.objects.get(user=request.user)
+
+    if "comment-form" in request.POST:
+       comment = request.POST.get("comment")
+       new_comment, created  = Comment.objects.get_or_create(user=author, content=comment)
+       post.comments.add(new_comment.id)
+    
+    if "reply-form" in request.POST:
+        reply = request.POST.get("reply")
+        comment_id = request.POST.get("comment-id")
+        comment_obj = Comment.objects.get(id=comment_id)
+        new_reply, created = Reply.objects.get_or_create(user=author, content=reply)
+        comment_obj.replies.add(new_reply.id)
+
     context={
         "post":post
     }
@@ -120,6 +145,15 @@ def create_post(request):
         "title" : "Create New Post"
     })
     return render(request, "create_post.html" , context)
+
+def latest_posts(request):
+    posts = ForumPost.objects.all().filter(approved=True)[:10]
+    context = {
+        "posts": posts,
+        "title": "Latest 10 Posts"
+    }
+
+    return render(request, "latest-posts.html",context)
 
 
 

@@ -46,7 +46,7 @@
     <div class="container">
         <!--Navigation-->
         <div class="navigate">
-            <span><a href="">MyForum - Forums</a> >> <a href="{{post.categories.all.0.get_url}}">{{post.categories.all.0}}</a> >> <a href="{{post.get_url}}">{{post.title}}</a></span>
+            <span><a href="{% url 'Forums' %}">MyForum - Forums</a> >> <a href="{{post.categories.all.0.get_url}}">{{post.categories.all.0}}</a> >> <a href="{{post.get_url}}">{{post.title}}</a></span>
         </div>
 
         <!--Topic Section-->
@@ -76,10 +76,13 @@
         </div>
 
          <!--Comment Area-->
+         <form action="." method="post"> 
+          {% csrf_token %}
          <div class="comment-area hide" id="comment-area">
             <textarea name="comment" id="" placeholder="comment here ... "></textarea>
-            <input type="submit" value="submit">
-        </div>
+            <input type="submit" value="submit" name="comment-form">
+         </div>
+         </form>
 
         <!--Comments Section-->
 
@@ -97,16 +100,21 @@
                     {{comment.content}}
                     <br>
                     <div class="comment">
-                        <button onclick="showReply()">Reply</button>
+                        <button onclick="showReplies('comment{{comment.id}}')">Reply</button>
                     </div>
                 </div>
             </div>
         </div>
         <!--Reply Area-->
-        <div class="comment-area hide" id="reply-area">
+        <form action="." method="post">
+         {% csrf_token %}
+        <div class="comment-area hide" id="comment{{comment.id}}">
             <textarea name="reply" id="" placeholder="reply here ... "></textarea>
-            <input type="submit" value="submit">
+            <input type="submit" value="submit" name="reply-form">
+            <input type ="hidden" name="comment-id" value="{{comment.id}}">
         </div>
+        </form>
+
 
         <!--Reply section-->
         {% for reply in comment.replies.all %}
