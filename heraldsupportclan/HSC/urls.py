@@ -2,7 +2,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 
 from . import views
-from .views import Newsletter, create_post, latest_posts
+from .views import Newsletter, create_post, latest_posts, search_result
 
 
 urlpatterns = [
@@ -34,5 +34,5 @@ urlpatterns = [
     path('update_profile/', views.update_profile, name='update_profile'),
     path('create_post', create_post, name="create_post"),
     path('latest_posts', latest_posts, name="latest_posts"),
-    
+    path('search_result',search_result , name="search_result"),
 ]

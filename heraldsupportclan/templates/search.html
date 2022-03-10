@@ -46,7 +46,7 @@
     <div class="container">
         <!--Navigation-->
         <div class="navigate">
-            <span><a href="{% url 'Forums' %}">MyForum - Forums</a> >> <a href="{{forum.get_url}}">{{forum.title}}</a></span>
+            <span>Search:{{query}} --> {{objects|length}} Result(s) Found</span>
         </div>
         <!--Display posts table-->
         <div class="posts-table">
@@ -58,7 +58,7 @@
             </div>
 
 
-            {% for post in posts %}
+            {% for post in objects %}
             <div class="table-row">
                 <div class="status"><i class="fa fa-fire"></i></div>
                 <div class="subjects">
@@ -85,13 +85,8 @@
         <!--pagination ends-->
     </div>
 
-    <div class="note">
-        <span><i class="fa fa-frown-o"></i>&nbsp; 0 Engagement Topic</span>&nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-share-square"></i></a><br>
-        <span><i class="fa fa-book"></i>&nbsp; Low Engagement Topic</span>&nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-share-square"></i></a><br>
-        <span><i class="fa fa-fire"></i>&nbsp; Popular Topic</span>&nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-share-square"></i></a><br>
-        <span><i class="fa fa-rocket"></i>&nbsp; High Engagement Topic</span>&nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-share-square"></i></a><br>
-        <span><i class="fa fa-lock"></i>&nbsp; Closed Topic</span>&nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-share-square"></i></a><br>
-    </div>
+   
+    
 
     <footer>
         &copy; copyright @ 2021 by <span>Herald College Kathmandu</span>

@@ -22,8 +22,6 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="{% url 'Home' %}">Home</a></li>
                     <li class="nav-item"><a href="{% url 'Forums' %}">Forums</a></li>  
-                    {% comment %} <li class="nav-item"><a href="{% url 'posts' %}">Posts</a></li> {% endcomment %}
-                    {% comment %} <li class="nav-item"><a href="{% url 'detail' %}">Detail</a></li> {% endcomment %}
                     <li class="nav-item"><a href="{% url 'Event' %}">Events</a></li>
                     <li class="nav-item"><a href="{% url 'Newsletter' %}">Newsletter</a></li>
                 </ul>
@@ -32,17 +30,19 @@
             <div class="brand"><span>Herald</span>SupportClan</div>
         </div>
         <!--SearchBox Section-->
+        <form action="{% url 'search_result' %}" role="form" method="GET">
         <div class="search-box">
             <div>
-                <select name="" id="">
+                <select name="search-box" id="">
                     <option value="Everything">Everything</option>
                     <option value="Titles">Titles</option>
                     <option value="Descriptions">Descriptions</option>
                 </select>
                 <input type="text" name="q" placeholder="search ...">
-                <button><i class="fa fa-search"></i></button>
+                <button type="submit" name="search"><i class="fa fa-search"></i></button>
             </div>
         </div>
+        </form>
     <div class="container">
         <!--Navigation-->
         <div class="navigate">

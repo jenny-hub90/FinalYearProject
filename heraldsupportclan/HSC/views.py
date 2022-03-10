@@ -1,10 +1,12 @@
 from multiprocessing import context
+from turtle import pos, title
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Author, EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout, Category, ForumPost,Comment,Reply
 from django.views.generic import ListView
 from .utils import update_views
 from .forms import UpdateForm,ForumPostForm
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 
@@ -68,7 +70,8 @@ def detail(request, slug):
         comment_obj.replies.add(new_reply.id)
 
     context={
-        "post":post
+        "post":post,
+        "title":post.title,
     }
     update_views(request, post)
 
@@ -77,10 +80,20 @@ def detail(request, slug):
 def posts(request, slug):
     category = get_object_or_404(Category, slug=slug)
     posts = ForumPost.objects.filter(approved=True, categories=category)
+    paginator = Paginator(posts, 5)
+    page = request.GET.get("page")
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
 
     context = {
         "posts":posts,
         "forum": category,
+        "title": "Posts",
     }
     return render(request,'posts.html',context)
 
@@ -154,6 +167,11 @@ def latest_posts(request):
     }
 
     return render(request, "latest-posts.html",context)
+
+def search_result(request):
+
+
+    return render(request,"search.html")
 
 
 
