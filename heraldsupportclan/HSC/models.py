@@ -143,6 +143,8 @@ class ForumPost(models.Model):
     )
     tags = TaggableManager()
     comments = models.ManyToManyField(Comment, blank=True)
+    closed = models.BooleanField(default=False)
+    state = models.CharField(max_length=40, default="zero")
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -164,3 +166,7 @@ class ForumPost(models.Model):
     @property
     def last_reply(self):
         return self.comments.latest("date")
+
+    # @property
+    # def last_reply(self):
+    #     return self.comments.latest("date")

@@ -1,11 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Poppins:wght@500&display=swap" rel="stylesheet');
 
 
-
+:root{
+  --main-color:#fff;
+}
 
 html {
     scroll-behavior: smooth;
   }
+
+html::-webkit-scrollbar{
+    width:1rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: #444;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: var(--main-color);
+    border-radius: 5rem;
+}
+
   body {
 
     background:#75bf44 ;

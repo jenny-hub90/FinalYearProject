@@ -1,4 +1,5 @@
 {% load static %}
+{% if user.is_authenticated%}
 {% load hitcount_tags %}
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +61,22 @@
 
             {% for post in posts %}
             <div class="table-row">
+
+                {% if post.closed == True %}
+                <div class="status"><i class="fa fa-lock"></i></div>
+                {% elif post.num_comments == 0 %}
+                <div class="status"><i class="fa fa-frown-o"></i></div>
+                {% elif post.num_comments > 0 and post.num_comments < 2 %}
+                <div class="status"><i class="fa fa-book"></i></div>
+                {% elif post.num_comments > 2 and post.num_comments < 4 %}
+                <div class="status"><i class="fa fa-rocket"></i></div>
+                {% elif post.num_comments >= 4 %}
                 <div class="status"><i class="fa fa-fire"></i></div>
+                 
+                {% endif %}
+               
+               
+
                 <div class="subjects">
                     <a href="{{post.get_url}}">{{post.title}}</a>
                     <br>
@@ -99,3 +115,8 @@
     <script src="{%static 'js/forumagain.js'%}"></script>
 </body>
 </html>
+{% else %}
+<p style="color:#75bf44;font-size:30px;font-family: 'Poppins', sans-serif; font-weight:bolder;">
+  Please Register or LogIn to view this page!<br><a href="{% url 'register' %}"><b>Register</b></a></br> or <a href="{% url 'login' %}"><b>Login</b></a>
+</p>
+{% endif %}

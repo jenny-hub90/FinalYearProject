@@ -13,8 +13,6 @@ def searchFunction(request):
         else:
             objects = posts.filter(title__icontains=query)
         #ends here
-        for obj in objects:
-            print(obj.title)
         search_context = {
             "objects" : objects,
             "query" : query,

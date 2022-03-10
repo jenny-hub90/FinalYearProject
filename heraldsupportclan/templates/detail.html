@@ -1,6 +1,6 @@
 {% load hitcount_tags %}
 {% load static %}
-
+{% if user.is_authenticated%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,6 +76,10 @@
         </div>
 
          <!--Comment Area-->
+         {% if post.closed == True%}
+         <div style="background-color:#fff; color:red; font-weight:bolder; padding:20px; width:100%;"> Cannot comment on this topic as this topic is closed! </div>
+         {% else %}
+         
          <form action="." method="post"> 
           {% csrf_token %}
          <div class="comment-area hide" id="comment-area">
@@ -83,6 +87,7 @@
             <input type="submit" value="submit" name="comment-form">
          </div>
          </form>
+         {% endif %}
 
         <!--Comments Section-->
 
@@ -145,3 +150,8 @@
     <script src="{%static 'js/forumagain.js'%}"></script>
 </body>
 </html>
+{% else %}
+<p style="color:#75bf44;font-size:30px;font-family: 'Poppins', sans-serif; font-weight:bolder;">
+  Please Register or LogIn to view this page!<br><a href="{% url 'register' %}"><b>Register</b></a></br> or <a href="{% url 'login' %}"><b>Login</b></a>
+</p>
+{% endif %}
