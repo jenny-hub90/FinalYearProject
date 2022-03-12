@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     
     <link rel="stylesheet" href="{%static 'css/Home.css'%}">
    
@@ -229,7 +229,7 @@
         <h3>Learn more about our goals</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam labore fugiat ut esse perferendis perspiciatis provident dolores fuga in facilis culpa possimus, quia praesentium itaque, sapiente quasi harum rem asperiores.</p>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat vero expedita incidunt provident quibusdam aut odit, numquam nesciunt similique nisi.</p>
-        <a href="#" class="btn">Our Team</a>
+        <a href="{% url 'team' %}" class="btn">Our Team</a>
     </div>
 
 </div>
@@ -270,9 +270,8 @@
 
 
 
-
-
 <!-- script part start  -->
+
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

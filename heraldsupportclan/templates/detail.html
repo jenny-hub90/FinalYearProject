@@ -7,28 +7,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forum</title>
-    <link rel="stylesheet" href={%static 'css/forumagain.css'%}>
+    <link rel="stylesheet" href="{%static 'css/forumagain.css'%}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap" rel="stylesheet">
+     <!-- font awesome cdn link  -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-    <header>
-        <!--NavBar Section-->
-        <div class="navbar">
-            <nav class="navigation hide" id="navigation">
-                <span class="close-icon" id="close-icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="{% url 'Home' %}">Home</a></li>
-                    <li class="nav-item"><a href="{% url 'Forums' %}">Forums</a></li>  
-                    <li class="nav-item"><a href="{% url 'Event' %}">Events</a></li>
-                    <li class="nav-item"><a href="{% url 'Newsletter' %}">Newsletter</a></li>
-                </ul>
-            </nav>
-            <a class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
-            <div class="brand"><span>Herald</span>SupportClan</div>
-        </div>
+   
+<!-- header section starts  -->
+
+<header class="header">
+    
+    <a href="#" class="logo"><span>Herald</span>SupportClan</a>
+
+    <nav class="navbar">
+      <a href="{% url 'Home' %}">Home</a>
+      <a href="{% url 'Forums' %}">Forums</a>
+      <a href="{% url 'Event' %}">Events</a>
+      <a href="{% url 'Newsletter' %}">Newsletter</a>
+    </nav>
+
+    <div id="menu-bars" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
         <!--SearchBox Section-->
         <form action="{% url 'search_result' %}" role="form" method="GET">
         <div class="search-box">
@@ -148,6 +154,7 @@
         &copy; copyright @ 2021 by <span>Herald College Kathmandu</span>
     </footer>
     <script src="{%static 'js/forumagain.js'%}"></script>
+    <script src="{% static 'js/event.js' %}"></script>
 </body>
 </html>
 {% else %}

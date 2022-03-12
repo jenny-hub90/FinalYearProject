@@ -412,9 +412,7 @@ section{
         font-size: 2rem;
     }
 
-    .home .content h3{
-        font-size: 4rem;
-    }
+    
 
 }
 
@@ -423,13 +421,6 @@ section{
     html{
         font-size: 50%;
     }
-
-    .home .home-slider .swiper-slide{
-        width: 27rem;
-    }
-
-    .contact form .inputBox input{
-        width: 100%;
-    }
+    
 
 }

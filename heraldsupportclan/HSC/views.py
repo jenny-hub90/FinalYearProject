@@ -169,9 +169,11 @@ def latest_posts(request):
     return render(request, "latest-posts.html",context)
 
 def search_result(request):
-
-
     return render(request,"search.html")
+
+
+def team(request):
+    return render(request, "team.html")
 
 
 
