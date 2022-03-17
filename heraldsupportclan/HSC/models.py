@@ -167,6 +167,8 @@ class ForumPost(models.Model):
     def last_reply(self):
         return self.comments.latest("date")
 
-    # @property
-    # def last_reply(self):
-    #     return self.comments.latest("date")
+
+class Gallery(models.Model):
+    gallerytitle = models.CharField(max_length=255, blank=False)
+    galleryimage = models.ImageField(max_length=800,upload_to="galleryimage/", blank=False)
+    

@@ -28,8 +28,6 @@
     <nav class="navbar">
       <a href="{% url 'Home' %}">Home</a>
       <a href="{% url 'Forums' %}">Forums</a>
-      {% comment %} <a href="{% url 'posts' %}">Posts</a> {% endcomment %}
-      {% comment %} <a href="{% url 'detail' %}">Detail</a> {% endcomment %}
       <a href="{% url 'Event' %}">Events</a>
       <a href="{% url 'Newsletter' %}">Newsletter</a>
     </nav>
@@ -46,7 +44,7 @@
 
     <div class="content">
         <h3>its time to celebrate and perform!! <span> event announcement </span></h3>
-        <a href="{% url 'eventinfo' %}" class="btn">Event Info</a>
+        <a href="{% url 'eventinfo' %}" class="btn">Event Information</a>
     </div>
 
     <div class="swiper-container home-slider">
@@ -84,7 +82,7 @@
         <h3>Learn about events announcement</h3>
         <p>{{ eventabouts.aboutdesc }}</p>
         <p>{{ eventabouts.moredesc }}</p>
-        <a href="#" class="btn">contact us</a>
+        
     </div>
 
 </div>
@@ -98,13 +96,16 @@
 
 <section class="gallery" id="gallery">
 
-    <h1 class="heading">our <span>gallery</span></h1>
+    <h1 class="heading">our <span>gallery</span></h1>   
+    <a href="{% url 'gallery' %}" class="btn">More Pictures</a>
+
+    
 
     <div class="box-container">
-
+        {% for eventgallerys in eventgallery %}
         <div class="box">
-            <img src="{% static 'Images/p1.jpg' %}" alt="">
-            <h3 class="title">photos and events</h3>
+            <img src="{{ eventgallerys.galleryimage.url }}" alt="">
+            <h3 class="title">{{ eventgallerys.gallerytitle }}</h3>
             <div class="icons">
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-share"></a>
@@ -112,7 +113,7 @@
             </div>
         </div>
 
-        <div class="box">
+        {% comment %} <div class="box">
             <img src="{% static 'Images/p2.jpg' %}" alt="">
             <h3 class="title">photos and events</h3>
             <div class="icons">
@@ -190,9 +191,10 @@
                 <a href="#" class="fas fa-share"></a>
                 <a href="#" class="fas fa-eye"></a>
             </div>
-        </div>
-
+        </div> {% endcomment %}
+        {% endfor %}
     </div>
+   
 
 </section>
 

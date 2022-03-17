@@ -14,6 +14,7 @@ urlpatterns = [
     path('posts/<slug>/', views.posts, name='posts'),
     path('login/',views.loginPage, name='login'),
     path('Event',views.Event, name='Event'),
+    path('gallery', views.gallery, name='gallery'),
     path('Newsletter', Newsletter.as_view(), name="Newsletter"),
     path('reset_password/',
     auth_views.PasswordResetView.as_view(template_name="registration/password_reset.html"),

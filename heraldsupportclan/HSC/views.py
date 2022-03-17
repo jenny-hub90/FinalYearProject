@@ -1,7 +1,7 @@
 from multiprocessing import context
 from turtle import pos, title
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Author, EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout, Category, ForumPost,Comment,Reply
+from .models import Author, EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout, Category, ForumPost,Comment,Reply,Gallery
 from django.views.generic import ListView
 from .utils import update_views
 from .forms import UpdateForm,ForumPostForm
@@ -103,12 +103,16 @@ def Event(request):
     eventslider= Eventslider.objects.all()
     eventabout= Eventabout.objects.all()
     eventreview = EventReview.objects.all()
+    eventgallery = Gallery.objects.all()
     return render(request,'Event.html',{
         'eventslider':eventslider,
         'eventabout': eventabout,
         'eventreview': eventreview,
+        'eventgallery': eventgallery,
         })
 
+def gallery(request):
+    return render(request,'gallery.html')
 
 def changepassword(request):
     return render(request, 'change-password.html')
