@@ -1,73 +1,72 @@
 {% load static %}
-
 <!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events Gallery</title>
-
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <!-- custom css file link  -->
+    <title>Event Gallery</title>
     <link rel="stylesheet" href="{%static 'css/gallery.css'%}">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
-    
-<!-- header section starts  -->
-{% comment %} 
-<header class="header">
-    
-    <a href="#" class="logo"><span>Herald</span>SupportClan</a>
-
-    <nav class="navbar">
-      <a href="{% url 'Home' %}">Home</a>
-      <a href="{% url 'Forums' %}">Forums</a>
-      <a href="{% url 'Event' %}">Events</a>
-      <a href="{% url 'Newsletter' %}">Newsletter</a>
+  <div class="wrapper">
+    <!-- filter Items -->
+    <nav>
+      <div class="items">
+        <span class="item active" data-name="all">All</span>
+        <span class="item" data-name="Christmas-Event">Christmas</span>
+        <span class="item" data-name="Kumari-Hall-Event">Kumari-Hall</span>
+        <span class="item" data-name="CEO-Meet">CEO-Meet</span>
+        <span class="item" data-name="Dev-Fest2021">Dev-Fest2021</span>
+        {% comment %}<span class="item" data-name="headphone">Headphone</span>  {% endcomment %}
+      </div>
     </nav>
-
-    <div id="menu-bars" class="fas fa-bars"></div>
-
-</header> {% endcomment %}
-
-<!-- header section ends -->
-
-<section id="gallery-gallery" class="wrapper-gallery">
-    <p>Jenny Rajak</p>
-    <h2> Event Photo Gallery</h2>
-    <div class="gallery-img img1">
-        <div><a href="#">This is a title</a></div>
+    <!-- filter Images -->
+    <div class="gallery">
+      <div class="image" data-name="Christmas-Event"><span><img src="{% static 'Images/p1.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Christmas-Event"><span><img src="{% static 'Images/p2.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Christmas-Event"><span><img src="{% static 'Images/p3.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Christmas-Event"><span><img src="{% static 'Images/p10.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Christmas-Event"><span><img src="{% static 'Images/p11.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Christmas-Event"><span><img src="{% static 'Images/p12.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Christmas-Event"><span><img src="{% static 'Images/p13.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Christmas-Event"><span><img src="{% static 'Images/p14.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p5.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p6.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p7.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p8.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p9.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p15.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p16.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p17.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="CEO-Meet"><span><img src="{% static 'Images/ceo1.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="CEO-Meet"><span><img src="{% static 'Images/ceo2.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="CEO-Meet"><span><img src="{% static 'Images/ceo3.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="CEO-Meet"><span><img src="{% static 'Images/ceo4.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="CEO-Meet"><span><img src="{% static 'Images/ceo5.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="CEO-Meet"><span><img src="{% static 'Images/ceo6.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="CEO-Meet"><span><img src="{% static 'Images/ceo7.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="CEO-Meet"><span><img src="{% static 'Images/ceo8.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Dev-Fest2021"><span><img src="{% static 'Images/dev1.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Dev-Fest2021"><span><img src="{% static 'Images/dev2.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Dev-Fest2021"><span><img src="{% static 'Images/dev3.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Dev-Fest2021"><span><img src="{% static 'Images/dev4.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Dev-Fest2021"><span><img src="{% static 'Images/dev5.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Dev-Fest2021"><span><img src="{% static 'Images/dev6.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Dev-Fest2021"><span><img src="{% static 'Images/dev7.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Dev-Fest2021"><span><img src="{% static 'Images/dev8.jpg' %}" alt=""></span></div>
     </div>
-    <div class="gallery-img img2">
-        <div><a href="#">This is a title</a></div>
+  </div>
+  <!-- fullscreen img preview box -->
+  <div class="preview-box">
+    <div class="details">
+      <span class="title">Image Category: <p></p></span>
+      <span class="icon fas fa-times"></span>
     </div>
-    <div class="gallery-img img3">
-        <div><a href="#">This is a title</a></div>
-    </div>
-    <div class="gallery-img img4">
-        <div><a href="#">This is a title</a></div>
-    </div>
-    <div class="gallery-img img5">
-        <div><a href="#">This is a title</a></div>
-    </div>
-    <div class="gallery-img img6">
-        <div><a href="#">This is a title</a></div>
-    </div>
-    <div class="gallery-img img7">
-        <div><a href="#">This is a title</a></div>
-    </div>
-</section>
-
-
-
-
-<!-- custom js file link  -->
-<script src="{% static 'js/gallery.js' %}"></script>
+    <div class="image-box"><img src="" alt=""></div>
+  </div>
+  <div class="shadow"></div>
+  <script src="{% static 'js/gallery.js' %}"></script>
 </body>
 </html>
