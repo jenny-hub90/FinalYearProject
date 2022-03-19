@@ -114,6 +114,7 @@ def Event(request):
 def gallery(request):
     return render(request,'gallery.html')
 
+
 def changepassword(request):
     return render(request, 'change-password.html')
 

@@ -171,4 +171,8 @@ class ForumPost(models.Model):
 class Gallery(models.Model):
     gallerytitle = models.CharField(max_length=255, blank=False)
     galleryimage = models.ImageField(max_length=800,upload_to="galleryimage/", blank=False)
-    
+
+
+
+
+ 

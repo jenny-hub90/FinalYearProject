@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import LatestEvents, Post, slider, review, Eventslider, Eventabout, EventReview, Toppost, Category, Author, ForumPost, Comment, Reply, Gallery
+from .models import  LatestEvents, Post, slider, review, Eventslider, Eventabout, EventReview, Toppost, Category, Author, ForumPost, Comment, Reply, Gallery
 
 # Register your models here.
 

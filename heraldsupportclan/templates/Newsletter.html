@@ -27,8 +27,6 @@
     <nav class="navbar">
     <a href="{% url 'Home' %}">Home</a>
     <a href="{% url 'Forums' %}">Forums</a>
-    {% comment %} <a href="{% url 'posts' %}">Posts</a> {% endcomment %}
-    {% comment %} <a href="{% url 'detail' %}">Detail</a> {% endcomment %}
     <a href="{% url 'Event' %}">Events</a>
     <a href="{% url 'Newsletter' %}">Newsletter</a>
     </nav>
@@ -38,44 +36,36 @@
 </header>
 
 <!-- header section ends -->
-<section class="container">
-      <h2 class="head">Latest<span>News</span></h2>
-      <div class="row">
-        
-        <div class="col-6">
-          <img src="{% static 'Images/News1.jpg' %}" alt="">
-        </div>
-        <div class="col-6">
-          <h3>Lorem Ipsum</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-          aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        </div>
+<section class="container" id="posts">
+  {% for post in object_list %}
+  <div class="posts-container">
+      
+      <div class="post">
+          <img src="{{ post.header_image.url }}" alt="" class="image">
+          <div class="date">
+              <i class="far fa-clock"></i>
+              <span>{{ post.post_date }}</span>
+          </div>
+          <h3 class="title">{{ post.title }}</h3>
+          <p class="text">{{ post.body }}</p>
+          <p class="text">{{ post.body }}</p> 
+          <div class="links">
+              <a href="#" class="user">
+                  <i class="far fa-user"></i>
+                  <span> By: {{ post.author.first_name }} 
+                    {{ post.author.last_name }} - 
+                    {{ post.post_date }}</span>
+              </a>
+              
+          </div>
       </div>
-    </section>
-    <section class="container">
-      <div class="row">
-    {% for post in object_list %}
-        <div class="col-8">
-          <div class="row">
-            <p>{{ post.title }}</p>
-            <p> By: {{ post.author.first_name }} 
-            {{ post.author.last_name }} - 
-            {{ post.post_date }}</p>
-          </div>
-          <div class="image">
-          {% if post.header_image %}
-            <img src="{{ post.header_image.url }}" alt="">
-            {% endif %}
-          </div>
-          <div class="col-8">
-            <h4 class="info-title">Description</h4>
-            <p>{{ post.body }}</p>
-          </div>
-        </div>
+
+  </div>
+  
+  </div>
   {% endfor %}
-</div>
 </section>
+
 
 
 <!-- footer section starts  -->
@@ -131,6 +121,7 @@
 
 <!-- custom js file link  -->
 <script src="{% static 'js/event.js' %}"></script>
+
 
 </body>
 </html>
