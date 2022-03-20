@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
-{% if user.is_authenticated%}
 {% load crispy_forms_tags %}
+{% if user.is_authenticated%}
 {% block content %}
 
 <h1 style="text-align:center; margin-block:50px; color:#333;">Hey {{user}}, Become An Author</h1>
-
-<form method="POST" action="." enctype="multipart/form-data" style="margin-left:150px;margin-bottom: 150px;">
+<style>
+  label {
+    color: #000;
+    font-size: 2rem;
+}
+</style>
+<div class= "form-group">
+  <form method="POST" action="." enctype="multipart/form-data" style="margin-left:150px;margin-bottom: 150px;">
     {% csrf_token %}    
-    {{form|crispy}}
+    {{ form|crispy }}
+    {% comment %} <button class= "btn btn-secondary"> Update</button> {% endcomment %}
     <input type="submit" value="Update"  style="margin-block:50px;">
-</form>
+  </form>
+</div>
 
 {% endblock content %}
 {% else %}

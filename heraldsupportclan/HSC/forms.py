@@ -9,8 +9,10 @@ class UpdateForm(forms.ModelForm):
         model = Author
         fields = ("fullname", "bio", "profile_pic")
 
-        # widget = {
-        #     'title': form.TextInput(attrs={'class:': 'form-control'}),
+        # widgets = {
+        #     'title': forms.TextInput(attrs={'class:': 'form-control'}),
+        #     'bio': forms.Textarea(attrs={'class:': 'form-control'}),
+        #     'profile_pic': forms.URLInput(attrs={'class:': 'form-control'}),
             
         #  }
 
@@ -22,5 +24,8 @@ class ForumPostForm(forms.ModelForm):
         fields = ["title", "content", "categories", "tags" ]
 
         # widget = {
-        #     'title': form.
+        #     'title': forms.TextInput(attrs={'class:': 'form-control'}),
+        #     'content': forms.Textarea(attrs={'class:': 'form-control'}),
+        #     'categories': forms.Select(attrs={'class:': 'form-control'}),
+        #     'tags': forms.TextInput(attrs={'class:': 'form-control'}),
         # }

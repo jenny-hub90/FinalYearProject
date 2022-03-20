@@ -600,9 +600,24 @@ section{
     padding:1rem 0;
     line-height: 2;
 }
+.footer{
+  background:#333;
+}
 
+.footer .credit{
+  text-align: center;
+  color:#fff;
+  padding:2rem;
+  padding-top: 2.5rem;
+  margin-top: -1rem;
+  font-size: 2rem;
+}
+
+.footer .credit span{
+  color:var(--main-color);
+}
   
-  #footer {
+  /* #footer {
     width: 100%;
     background: #333;
   }
@@ -617,7 +632,7 @@ section{
   
   #footer h1 span {
     color:  #75bf44;
-  }
+  } */
   
   @-webkit-keyframes background {
     0%, 100% {
