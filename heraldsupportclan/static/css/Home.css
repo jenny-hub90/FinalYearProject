@@ -600,7 +600,7 @@ section{
     padding:1rem 0;
     line-height: 2;
 }
-.footer{
+/* .footer{
   background:#333;
 }
 
@@ -614,6 +614,20 @@ section{
 }
 
 .footer .credit span{
+  color:var(--main-color);
+} */
+/* Footer Styling */
+
+footer{
+  font-size: 14px;
+  margin-top: 20px;
+  padding: 20px;
+  background-color:  #333;
+  display: block;
+  text-align: center;
+  color:#fff
+}
+footer  span{
   color:var(--main-color);
 }
   
