@@ -172,6 +172,25 @@ class Gallery(models.Model):
     gallerytitle = models.CharField(max_length=255, blank=False)
     galleryimage = models.ImageField(max_length=800,upload_to="galleryimage/", blank=False)
 
+class EventGalleryCategory(models.Model):
+    title = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=400, unique=True,blank=True)
+    description = models.TextField(default="description")
+
+    class Meta:
+        verbose_name_plural = "eventCategory"
+    def __str__(self):
+        return self.title
+
+    
+    def save(self,*args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(EventGalleryCategory, self).save(*args, **kwargs)
+
+class EventGalleryPictures(models.Model):
+    eventCategory = models.ManyToManyField(EventGalleryCategory)
+    eventimage = models.ImageField(max_length=800,upload_to="eventgallery/", blank=False)
 
 
 

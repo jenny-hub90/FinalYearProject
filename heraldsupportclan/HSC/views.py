@@ -1,12 +1,13 @@
 from multiprocessing import context
 from turtle import pos, title
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Author, EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout, Category, ForumPost,Comment,Reply,Gallery
+from .models import Author, EventGalleryCategory, EventGalleryPictures, EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout, Category, ForumPost,Comment,Reply,Gallery
 from django.views.generic import ListView
 from .utils import update_views
 from .forms import UpdateForm,ForumPostForm
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+
 
 
 
@@ -23,6 +24,8 @@ def loginPage(request):
     
 def ForgotPassword(request):
     return render(request, 'ForgotPassword.html')
+
+
 
 def update_profile(request):
     context={}
@@ -112,7 +115,13 @@ def Event(request):
         })
 
 def gallery(request):
-    return render(request,'gallery.html')
+    eventtitle = EventGalleryCategory.objects.all()
+    eventimage = EventGalleryPictures.objects.all()
+    return render(request,'gallery.html',{
+        'eventtitle': eventtitle,
+        'eventimage' : eventimage,
+
+    })
 
 
 def changepassword(request):
@@ -179,6 +188,9 @@ def search_result(request):
 
 def team(request):
     return render(request, "team.html")
+
+
+
 
 
 

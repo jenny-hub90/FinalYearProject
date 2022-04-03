@@ -2,24 +2,91 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<h1 style="text-align:center; margin-block:50px; color:#333;">Hey {{user}}, Write something</h1>
+{% comment %} <h1 style="text-align:center; margin-block:50px; color:#333;">Hey {{user}}, Write something</h1> {% endcomment %}
+<h2 style="text-align:center; margin-block:50px; color:#333;">Hey <span>{{user}}</span>, Write something</h2>
 <style>
   *{
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
-    
   }
-    label {
+
+  label {
     color: #000;
-    font-size: 1.5rem;
+    font-size: 20px;
     font-family: 'Poppins', sans-serif;
   }
+
+  .form-control{
+    width:75%;
+    font-size: 15px;
+  }
+  
+  button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: inherit;
+    border-radius:0.3rem;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+  padding: 0.5rem 1rem;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 15px;
+    color: #dc3545;
+}
+.user_card{
+    width: 75%;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    background: #75bf44;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    -webkit-box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+   
+}
+
+h2{
+  padding-top: 50px;
+  font-size: 25px;
+  font-family: cursive;
+  font-weight: bolder;
+}
+h2 span {
+  color:  #75bf44;
+  font-family: cursive;
+
+}
+.text-muted {
+  color: #333!important;
+}
+.small, small {
+  font-size: 15px;
+  font-weight: 400;
+}
 </style>
+<div class="user_card">
 <form method="POST" style="margin-left:150px;">
     {% csrf_token %}    
     {{ form|crispy }}
     <button type="submit" class="btn btn-secondary btn-lg">Save</button>
     {% comment %} <input type="submit" value="Save"  style="margin-block:50px;"> {% endcomment %}
 </form>
+</div>
 
 {% endblock content %}

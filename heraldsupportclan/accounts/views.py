@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
+
 from .forms import SignUpForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -10,7 +11,8 @@ from django.contrib.auth.decorators import login_required
 
 
 
-# Create your views here.
+
+
 
 def registerPage(request):
     form = SignUpForm()
@@ -26,6 +28,7 @@ def registerPage(request):
     
     context = {'form':form}
     return render(request,'accounts/register.html', context)
+
 
 def loginPage(request):
 
@@ -50,7 +53,9 @@ def logoutUser(request):
 
 
 
+
 class UserRegisterView(generic.CreateView):
      form_class = SignUpForm
      template_name = 'registration/register.html'
      success_url = reverse_lazy('login')
+

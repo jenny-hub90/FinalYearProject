@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<!-- Created By CodingNepal - www.codingnepalweb.com -->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,16 +10,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
+  <a href="{% url 'Event' %}"><button> Back </button></a>  
   <div class="wrapper">
+    
     <!-- filter Items -->
     <nav>
       <div class="items">
         <span class="item active" data-name="all">All</span>
         <span class="item" data-name="Christmas-Event">Christmas</span>
-        <span class="item" data-name="Kumari-Hall-Event">Kumari-Hall</span>
+        <span class="item" data-name="Alumini-MeetUp-2021">Alumini-Meetup</span>
         <span class="item" data-name="CEO-Meet">CEO-Meet</span>
         <span class="item" data-name="Dev-Fest2021">Dev-Fest2021</span>
-        {% comment %}<span class="item" data-name="headphone">Headphone</span>  {% endcomment %}
+        <span class="item" data-name="Holi">Holi</span>  
+        <span class="item" data-name="Global-MoneyWeek">Global-MoneyWeek</span>
       </div>
     </nav>
     <!-- filter Images -->
@@ -32,14 +35,14 @@
       <div class="image" data-name="Christmas-Event"><span><img src="{% static 'Images/p12.jpg' %}" alt=""></span></div>
       <div class="image" data-name="Christmas-Event"><span><img src="{% static 'Images/p13.jpg' %}" alt=""></span></div>
       <div class="image" data-name="Christmas-Event"><span><img src="{% static 'Images/p14.jpg' %}" alt=""></span></div>
-      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p5.jpg' %}" alt=""></span></div>
-      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p6.jpg' %}" alt=""></span></div>
-      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p7.jpg' %}" alt=""></span></div>
-      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p8.jpg' %}" alt=""></span></div>
-      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p9.jpg' %}" alt=""></span></div>
-      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p15.jpg' %}" alt=""></span></div>
-      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p16.jpg' %}" alt=""></span></div>
-      <div class="image" data-name="Kumari-Hall-Event"><span><img src="{% static 'Images/p17.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Alumini-MeetUp-2021"><span><img src="{% static 'Images/p5.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Alumini-MeetUp-2021"><span><img src="{% static 'Images/p6.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Alumini-MeetUp-2021"><span><img src="{% static 'Images/p7.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Alumini-MeetUp-2021"><span><img src="{% static 'Images/p8.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Alumini-MeetUp-2021"><span><img src="{% static 'Images/p9.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Alumini-MeetUp-2021"><span><img src="{% static 'Images/p15.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Alumini-MeetUp-2021"><span><img src="{% static 'Images/p16.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Alumini-MeetUp-2021"><span><img src="{% static 'Images/p17.jpg' %}" alt=""></span></div>
       <div class="image" data-name="CEO-Meet"><span><img src="{% static 'Images/ceo1.jpg' %}" alt=""></span></div>
       <div class="image" data-name="CEO-Meet"><span><img src="{% static 'Images/ceo2.jpg' %}" alt=""></span></div>
       <div class="image" data-name="CEO-Meet"><span><img src="{% static 'Images/ceo3.jpg' %}" alt=""></span></div>
@@ -56,6 +59,23 @@
       <div class="image" data-name="Dev-Fest2021"><span><img src="{% static 'Images/dev6.jpg' %}" alt=""></span></div>
       <div class="image" data-name="Dev-Fest2021"><span><img src="{% static 'Images/dev7.jpg' %}" alt=""></span></div>
       <div class="image" data-name="Dev-Fest2021"><span><img src="{% static 'Images/dev8.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Holi"><span><img src="{% static 'Images/holi.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Holi"><span><img src="{% static 'Images/holi1.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Holi"><span><img src="{% static 'Images/holi2.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Holi"><span><img src="{% static 'Images/holi3.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Holi"><span><img src="{% static 'Images/holi4.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Holi"><span><img src="{% static 'Images/holi5.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Holi"><span><img src="{% static 'Images/holi6.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Holi"><span><img src="{% static 'Images/holi7.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Global-MoneyWeek"><span><img src="{% static 'Images/gm1.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Global-MoneyWeek"><span><img src="{% static 'Images/gm2.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Global-MoneyWeek"><span><img src="{% static 'Images/gm3.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Global-MoneyWeek"><span><img src="{% static 'Images/gm4.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Global-MoneyWeek"><span><img src="{% static 'Images/gm5.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Global-MoneyWeek"><span><img src="{% static 'Images/gm6.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Global-MoneyWeek"><span><img src="{% static 'Images/gm7.jpg' %}" alt=""></span></div>
+      <div class="image" data-name="Global-MoneyWeek"><span><img src="{% static 'Images/gm8.jpg' %}" alt=""></span></div>
+
     </div>
   </div>
   <!-- fullscreen img preview box -->

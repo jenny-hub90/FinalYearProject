@@ -214,27 +214,81 @@ section{
 .gallery .box-container .box:hover .title{
     top:0;
 }
+button{
+    cursor: pointer;
+}
 
-.gallery .box-container .box .icons{
+ 
+.gallery .box-container .box .button{
     position: absolute;
     bottom:-10rem; left:0; right: 0;
     background:#75bf44;
     padding-top: 1rem;
     text-align: center;
+   
 }
 
-.gallery .box-container .box:hover .icons{
+.button button{
+    text-transform: uppercase;
+    background: none;
+    letter-spacing: 2px;
+    outline: none;
+    border:1px solid white;
+    color: white;
+}
+
+.gallery .box-container .box:hover .button{
     bottom: 0;
 }
 
-.gallery .box-container .box .icons a{
+.gallery .box-container .box .button {
     font-size: 2rem;
     margin:.5rem 1rem;
     color:#fff;
 }
 
-.gallery .box-container .box .icons a:hover{
-    color:var(--main-color);
+.gallery .box-container .box .button :hover{
+    color:#333;
+} 
+
+.overlay{
+    position: fixed;
+    background: rgba(71, 69, 69, 0.7);
+    top:0;
+    right:0;
+    bottom: 0;
+    left:0;
+    display: none;
+    z-index: 3;
+}
+.overlay.open{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+.overlay-inner{
+    background: white;
+    width: 700px;
+    padding: 20px;
+    position: relative;
+    opacity: 1;
+}
+.close{
+
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    background:none;
+    color:#75bf44;
+    border:0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.close:hover{
+    color: #333;
+    
+
 }
 
 .reivew .box{
@@ -242,6 +296,7 @@ section{
     background: #333;
     padding:2rem;
     position: relative;
+    padding: 10px;
 }
 
 .reivew .box .fa-quote-right{

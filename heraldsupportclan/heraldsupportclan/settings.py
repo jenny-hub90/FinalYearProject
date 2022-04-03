@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(3%r!y$5=9^%(cq$$3%z^*1&@&xt+8=gs@#xcw+a-y3=m8nk7q
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+LOGIN_URL =""
 
 # Application definition
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'hitcount',
     'taggit',
     'crispy_forms',
+    
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -164,3 +165,16 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'jumbledjenny19@gmail.com'
 EMAIL_HOST_PASSWORD = 'funnyjenny19'
 
+# #Email Verification
+# EMAIL_ACTIVE_FIELD = 'is_active'
+# EMAIL_SERVER = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_ADDRESS = 'jumbledjenny19@gmail.com' 
+# EMAIL_FROM_ADDRESS = 'herladsupporclan22@gmail.com'
+# EMAIL_PASSWORD = 'funnyjenny19'
+# EMAIL_MAIL_SUBJECT = 'Confirm your email'
+# EMAIL_MAIL_HTML = 'mail_body.html'
+# EMAIL_MAIL_PLAIN = 'mail_body.txt'
+# EMAIL_TOKEN_LIFE = 60*60
+# EMAIL_PAGE_TEMPLATE = 'confirm_template.html'
+# EMAIL_PAGE_DOMAIN = 'http://mydomain.com/'

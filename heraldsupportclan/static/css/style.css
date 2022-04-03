@@ -2,7 +2,7 @@
 
 
 :root{
-  --main-color:#fff;
+  --main-color:#75bf44;
 }
 
 html {
@@ -24,11 +24,27 @@ html::-webkit-scrollbar-thumb{
 
   body {
 
-    background:#75bf44 ;
+    background:#fff ;
     font-family: 'Poppins', sans-serif;
 }
+
+button {
+  outline: none;
+  border: none;
+  border-radius: 5rem;
+  background: #75bf44;
+  color: #fff;
+  cursor: pointer;
+  height: 2rem;
+  width: 5rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+button:hover {
+  background: #333;
+}
 b{
-    color: #fff;
+    color: #75bf44;
 }
   
   .slider {

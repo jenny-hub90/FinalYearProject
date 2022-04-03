@@ -91,6 +91,7 @@ section{
     font-weight: bolder;
     color:#333;
     font-size: 2.5rem;
+    text-decoration: none;
     
 }
 
@@ -102,6 +103,7 @@ section{
     font-size: 1.7rem;
     color:#000;
     margin-left: 2rem;
+    text-decoration: none;
 
 }
 
@@ -606,7 +608,6 @@ footer  span{
 }
 
 
-
 /* media queries  */
 
 @media (max-width:991px){
@@ -637,6 +638,7 @@ footer  span{
         border-top: .1rem solid #222;
         background: #333;
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        text-decoration: none;
     }
 
     .header .navbar.active{
@@ -654,6 +656,7 @@ footer  span{
         padding:1.3rem;
         margin:1.3rem;
         font-size: 2rem;
+        text-decoration: none;
     }
 
     
