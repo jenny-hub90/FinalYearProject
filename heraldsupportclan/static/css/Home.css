@@ -191,7 +191,7 @@ section{
 .active{
   background-color: #333;
   color: #fff;
-  font-weight: bold;
+  /* font-weight: bold; */
 
 }
 
@@ -285,7 +285,16 @@ section{
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+  .fab .fa-tiktok {
+    color: #111111;
+    filter: drop-shadow(-5px -5px 0 #24f6f0) contrast(150%) brightness(110%);
+    z-index: -1;
+  }
   
+  .fab .fa-tiktok::after {
+    filter: drop-shadow(5px 5px 0 #F70250) contrast(150%) brightness(110%);
+    z-index: -1;
+  }
   #course {
     display: -ms-grid;
     display: grid;

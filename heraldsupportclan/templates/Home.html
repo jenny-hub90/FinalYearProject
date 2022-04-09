@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -33,6 +34,10 @@
     <a href="{% url 'Forums' %}">Forums</a>
     <a href="{% url 'Event' %}">Events</a>
     <a  href="{% url 'Newsletter' %}">Newsletter</a>
+    {%  if user.is_superuser %}
+    <a href= "{% url 'Forum_postsapproval' %}"> Approval Posts</a>
+    {% endif %}
+
     {% endif %}
   </nav>
   <div id="menu-bars" class="fas fa-bars"></div>
@@ -57,7 +62,7 @@
   {% if user.is_authenticated %}
   <h2> Hello, {{user.username}}</h2>
   <a href="accounts/logout"><button> Logout now>></button></a>
-  <a href="update_profile"><button>Update Profile</button></a>  
+  {% comment %} <a href="update_profile"><button>Update Profile</button></a>   {% endcomment %}
   <a href="{% url 'create_post' %}"><button>Create post</button></a>  
   {% else %}
   <a href="{% url 'register'  %}"><button> Register now>></button></a>  
@@ -65,7 +70,7 @@
   {% endif %}
   <div class="icons">
     <a href="https://www.facebook.com/heraldcollegektm" target="_blank" class="fab fa-facebook-f"></a>
-    <a href="https://www.tiktok.com/search?q=herald%20college%20kathmandu&t=1646915602069"  target="_blank" class="fa fa-music"></a>
+    <a href="https://www.tiktok.com/search?q=herald%20college%20kathmandu&t=1646915602069"  target="_blank" <i class="fab fa-tiktok fa-2x"></i></a>
     <a href="https://www.instagram.com/heraldcollegektm/" target="_blank" class="fab fa-instagram"></a>
     <a href="https://www.linkedin.com/school/herald-college-kathmandu/" target="_blank" class="fab fa-linkedin"></a>
   </div>

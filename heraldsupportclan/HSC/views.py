@@ -1,5 +1,4 @@
 from multiprocessing import context
-from turtle import pos, title
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Author, EventGalleryCategory, EventGalleryPictures, EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout, Category, ForumPost,Comment,Reply,Gallery
 from django.views.generic import ListView
@@ -7,9 +6,7 @@ from .utils import update_views
 from .forms import UpdateForm,ForumPostForm
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-
-
-
+from django.contrib import messages
 
 
 # Create your views here.
@@ -25,11 +22,6 @@ def loginPage(request):
 def ForgotPassword(request):
     return render(request, 'ForgotPassword.html')
 
-
-
-def update_profile(request):
-    context={}
-    return render(request,'update.html',context)
 
 def Home(request):
    secs = LatestEvents.objects.all()
@@ -189,6 +181,22 @@ def search_result(request):
 def team(request):
     return render(request, "team.html")
 
+def Forum_postsapproval(request):
+    Forum_post_list = ForumPost.objects.all().order_by('-date')
+    if request.user.is_superuser:
+        if request.method == "POST":
+            id_list = request.POST.getlist('boxes')
+            #update database
+            for x in id_list:
+                ForumPost.objects.filter(pk=int(x)).update(approved=True)
+
+            messages.success(request,("Forum Posts Approval Has Been Updated!"))
+            return redirect('Forums')
+        else:
+            return render(request,'Forum_postsapproval.html',{'Forum_post_list':Forum_post_list})
+    else:
+        messages.success(request,("You are not authorized to view this page"))
+        return redirect('Home')
 
 
 

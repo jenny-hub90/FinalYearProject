@@ -30,6 +30,9 @@
       <a href="{% url 'Forums' %}">Forums</a>
       <a href="{% url 'Event' %}">Events</a>
       <a href="{% url 'Newsletter' %}">Newsletter</a>
+      {%  if user.is_superuser %}
+      <a href= "{% url 'Forum_postsapproval' %}"> Approval Posts</a>
+      {% endif %}
     </nav>
 
     <div id="menu-bars" class="fas fa-bars"></div>
