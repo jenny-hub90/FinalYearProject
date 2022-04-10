@@ -26,18 +26,14 @@
 <header class="header">
     
   <a href="#" class="logo"><span>Herald</span>SupportClan</a>
-  {% if user.is_authenticated %}
-  {% endif %}
+
   <nav class="navbar">
     <a  href="{% url 'Home' %}">Home</a>
-    {% if user.is_authenticated %}
     <a href="{% url 'Forums' %}">Forums</a>
     <a href="{% url 'Event' %}">Events</a>
     <a  href="{% url 'Newsletter' %}">Newsletter</a>
     {%  if user.is_superuser %}
     <a href= "{% url 'Forum_postsapproval' %}"> Approval Posts</a>
-    {% endif %}
-
     {% endif %}
   </nav>
   <div id="menu-bars" class="fas fa-bars"></div>
@@ -175,7 +171,7 @@
 
 <section id="testimonial">
 
-<h1 class="heading">{% if user.is_authenticated%}<a href="{% url 'studentreview' %}">{% endif %}what our students says</a></h1>
+<h1 class="heading"><a href="{% url 'studentreview' %}">what our students says</a></h1>
 <div class="box-container">
 
   <div class="box" data-aos="flip-left">

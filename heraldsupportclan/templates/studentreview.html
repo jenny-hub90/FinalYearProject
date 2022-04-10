@@ -1,7 +1,9 @@
+{% extends 'navandfooter.html' %}
 {% load static %}
 {% static 'Images' as baseUrl %}
-{%if user.is_authenticated%}
+
 <!DOCTYPE html>
+{% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,8 +23,7 @@
 <section class = "testimonials">
     <div class = "container">
         <h1> What Our Students Says </h1>
-        <p class="text-center">Let us know what the students has to say about..</p>
-        <a href="{% url 'Home' %}"><button> Back </button></a>  
+        <p class="text-center">Let us know what the students has to say about..</p>  
         {% for student in students %}
         <div class="row">
             
@@ -42,8 +43,4 @@
     
 </body> 
 </html>
-{% else %}
-<p style="color:#75bf44;font-size:30px;font-family: 'Poppins', sans-serif; font-weight:bolder;">
-  Please Register or LogIn to view this page!<br><a href="{% url 'register' %}"><b>Register</b></a></br> or <a href="{% url 'login' %}"><b>Login</b></a>
-</p>
-{% endif %}
+{% endblock content %}

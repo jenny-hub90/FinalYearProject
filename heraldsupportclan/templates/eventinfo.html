@@ -1,6 +1,7 @@
+{% extends 'navandfooter.html' %}
 {% load static %}
-{%if user.is_authenticated%}
 <!doctype html>
+{% block content %}
 <html>
 <head>
 <meta charset="utf-8">
@@ -71,10 +72,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
 	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
 	<script src="{% static 'js/eventinfo.js' %}"></script>
+	
+{% endblock content %}
 </body>
 </html>
-{% else %}
-<p style="color:#75bf44;font-size:30px;font-family: 'Poppins', sans-serif; font-weight:bolder;">
-  Please Register or LogIn to view this page!<br><a href="{% url 'register' %}"><b>Register</b></a></br> or <a href="{% url 'login' %}"><b>Login</b></a>
-</p>
-{% endif %}

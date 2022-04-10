@@ -639,7 +639,54 @@ footer{
 footer  span{
   color:var(--main-color);
 }
-  
+
+.theme-toggler{
+  position: fixed;
+  top:10rem; right:-20rem;
+  background: #333;
+  z-index: 1000;
+  width: 20rem;
+  text-align: center;
+}
+
+.theme-toggler.active{
+  right:0;
+}
+
+.theme-toggler h3{
+  color:#fff;
+  padding:1rem 0;
+  font-size: 2rem;
+}
+
+.theme-toggler .buttons{
+  display: flex;
+  justify-content:center;
+  flex-wrap: wrap;
+  gap:1rem;
+  padding:1rem;
+}
+
+.theme-toggler .buttons .theme-btn{
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.theme-toggler .toggle-btn{
+  position: absolute;
+  top:0; left:-5.9rem;
+  padding:1.3rem 1.5rem;
+  background:#333;
+  cursor: pointer;
+}
+
+.theme-toggler .toggle-btn i{
+  color:#fff;
+  font-size: 3rem;
+  animation: spin 4s linear infinite;
+}
   /* #footer {
     width: 100%;
     background: #333;
@@ -746,7 +793,7 @@ footer  span{
   .fa-times{
       transform: rotate(180deg);
   }
-
+  
   .header .navbar a{
       display: flex;
       background:#FFF;
@@ -808,53 +855,7 @@ footer  span{
     }
   }
   
-.theme-toggler{
-  position: fixed;
-  top:10rem; right:-20rem;
-  background: #333;
-  z-index: 1000;
-  width: 20rem;
-  text-align: center;
-}
 
-.theme-toggler.active{
-  right:0;
-}
-
-.theme-toggler h3{
-  color:#fff;
-  padding:1rem 0;
-  font-size: 2rem;
-}
-
-.theme-toggler .buttons{
-  display: flex;
-  justify-content:center;
-  flex-wrap: wrap;
-  gap:1rem;
-  padding:1rem;
-}
-
-.theme-toggler .buttons .theme-btn{
-  height: 5rem;
-  width: 5rem;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.theme-toggler .toggle-btn{
-  position: absolute;
-  top:0; left:-5.9rem;
-  padding:1.3rem 1.5rem;
-  background:#333;
-  cursor: pointer;
-}
-
-.theme-toggler .toggle-btn i{
-  color:#fff;
-  font-size: 3rem;
-  animation: spin 4s linear infinite;
-}
 /* 
 @keyframes spin {
   0%{

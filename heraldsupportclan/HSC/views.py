@@ -137,12 +137,11 @@ def update_profile(request):
     user = request.user 
     form = UpdateForm(request.POST, request.FILES)
     if request.method == "POST":
-        if form.is_valid():
-            update_profile = form.save(commit=False)
-            update_profile.user = user
-            update_profile.save()
-            return redirect("Home")
-
+            if form.is_valid():
+                update_profile = form.save(commit=False)
+                update_profile.user = user
+                update_profile.save()
+                return redirect("Home")
     context.update({
         "form": form,
         "title": "Update Profile",

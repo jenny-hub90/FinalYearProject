@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{% static 'css/forumagain.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+     
+<!-- header section starts  -->
+
+<header class="header">
+    
+    <a href="#" class="logo"><span>Herald</span>SupportClan</a>
+
+    <nav class="navbar">
+      <a href="{% url 'Home' %}">Home</a>
+      <a href="{% url 'Forums' %}">Forums</a>
+      <a href="{% url 'Event' %}">Events</a>
+      <a href="{% url 'Newsletter' %}">Newsletter</a>
+      {%  if user.is_superuser %}
+      <a href= "{% url 'Forum_postsapproval' %}"> Approval Posts</a>
+      {% endif %}
+    </nav>
+
+    <div id="menu-bars" class="fas fa-bars"></div>
+</header>
+    {% if messages %}
+        {% for message in messages %}
+            <div style="background-color:#fff;color:#000;font-weight:bolder;padding:20px;width:100%;"> {{message}} </div>
+        {% endfor %}
+    {% endif %}
+    {% block content %}
+    {% endblock content %}
+    <div style="margin-bottom: 150px;"></div>
+    <footer>
+        &copy; copyright @ 2022 by <span>Herald College Kathmandu</span>
+    </footer>
+    <script src="{% static 'js/forumagain.js' %}"></script>
+    <script src="{% static 'js/event.js' %}"></script>
+</body>
+</html>

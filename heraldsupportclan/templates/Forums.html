@@ -1,5 +1,5 @@
 {% load static %}
-{% if user.is_authenticated%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,8 +104,3 @@
     <script src="{% static 'js/event.js' %}"></script>
 </body>
 </html>
-{% else %}
-<p style="color:#75bf44;font-size:30px;font-family: 'Poppins', sans-serif; font-weight:bolder;">
-  Please Register or LogIn to view this page!<br><a href="{% url 'register' %}"><b>Register</b></a></br> or <a href="{% url 'login' %}"><b>Login</b></a>
-</p>
-{% endif %}

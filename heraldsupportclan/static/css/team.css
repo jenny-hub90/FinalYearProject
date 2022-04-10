@@ -39,6 +39,7 @@ button:hover {
     text-align: center;
     font-size: 3.5em;
     color: #333;
+    margin-top: 22px;
   }
   .card {
     box-shadow: 0 0 2.4em #75bf44;
