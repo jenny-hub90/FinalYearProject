@@ -120,11 +120,13 @@ section{
     color:#333;
     font-size: 4.5rem;
     text-transform: uppercase;
+    font-family: cursive;
 }
 
 .home .content h3 span{
     color:var(--main-color);
     text-transform: uppercase;
+    font-family: cursive;
 }
 
 .home .home-slider .swiper-slide{
