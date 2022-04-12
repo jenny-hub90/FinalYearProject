@@ -157,6 +157,7 @@ def create_post(request):
             new_post = form.save(commit=False)
             new_post.user = author
             new_post.save()
+            form.save_m2m()
             return redirect("Forums")
     context.update({
         "form" : form,

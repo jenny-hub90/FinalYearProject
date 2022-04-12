@@ -132,12 +132,12 @@ section{
 .home .home-slider .swiper-slide{
     overflow: hidden;
     border-radius: .5rem;
-    height: 50rem;
+    height: 35rem;
     width:35rem;
 }
 
 .home .home-slider .swiper-slide img{
-    height:100%;
+    height:auto;
     width:100%;
     object-fit: cover;
 }
