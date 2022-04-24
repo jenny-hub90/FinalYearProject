@@ -1,12 +1,14 @@
 from multiprocessing import context
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Author, EventGalleryCategory, EventGalleryPictures, EventReview, LatestEvents, Post, slider, review,  Eventslider, Eventabout, Category, ForumPost,Comment,Reply,Gallery
-from django.views.generic import ListView
+from .models import Author, EventGalleryCategory, review, EventGalleryPictures, EventReview, LatestEvents, Post, slider,  Eventslider, Eventabout, Category, ForumPost,Comment,Reply,Gallery, Notify,NotifUserStatus
+from django.views.generic import ListView, CreateView
 from .utils import update_views
 from .forms import UpdateForm,ForumPostForm
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib import messages
+from django.core import serializers
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -25,10 +27,11 @@ def ForgotPassword(request):
 
 def Home(request):
    secs = LatestEvents.objects.all()
-   students= review.objects.all()
+#    students= review.objects.all()
    return render(request,'Home.html', {
        'secs': secs,
-       'students':students,
+       'room_name': "broadcast"
+    
    })  
 
 def Forums(request):
@@ -123,14 +126,18 @@ def eventinfo(request):
     sliderdata = slider.objects.all()
     return render(request,'eventinfo.html',{'sliderdata':sliderdata})
 
-def studentreview(request):
-    students= review.objects.all()
-    return render(request, 'studentreview.html',{'students': students})
+# def studentreview(request):
+#     students= studentreview.objects.all()
+#     return render(request, 'studentreview.html',{'students':students})
 
 class Newsletter(ListView):
     model = Post
     template_name = 'Newsletter.html'
     ordering = ['-post_date']
+    
+def studentreview(request):
+    students= review.objects.all()
+    return render(request, 'studentreview.html',{'students': students})
 
 def update_profile(request):
     context = {}
@@ -192,20 +199,50 @@ def Forum_postsapproval(request):
 
             messages.success(request,("Forum Posts Approval Has Been Updated!"))
             return redirect('Forums')
+
         else:
             return render(request,'Forum_postsapproval.html',{'Forum_post_list':Forum_post_list})
     else:
         messages.success(request,("You are not authorized to view this page"))
         return redirect('Home')
 
+# Notifications
+def notifications(request):
+    data= Notify.objects.all().order_by('-id')
+    return render(request, "notifications.html",{'data':data})
 
+#Get Notifications
+def getnotifications(request):
+   data= Notify.objects.all().order_by('-id')
+   notifStatus=False
+   jsonData=[]
+   totalUnread=0
+   for d in data:
+      
+      try:
+          notifStatusData=NotifUserStatus.objects.get(user=request.user,notif=d)
 
+          if notifStatusData:
+            notifStatus=True
+      except NotifUserStatus.DoesNotExist:
+          notifStatus=False
+      if not notifStatus:
+          totalUnread=totalUnread+1
+      jsonData.append({
+           'pk':d.id,
+           'notify_detail':d.notify_detail,
+           'notifStatus':notifStatus
+        })
 
+   #jsonData=serializers.serialize('json',data)
+   return JsonResponse({'data':jsonData,'totalUnread':totalUnread})
 
-
-
-
-
-
+#Mark Read By user
+def mark_read_notif(request):
+    notif=request.GET['notif']
+    notif=Notify.objects.get(pk=notif)
+    user=request.user
+    NotifUserStatus.objects.create(notif=notif, user=user, status=True)
+    return JsonResponse({'bool':True})
 
 

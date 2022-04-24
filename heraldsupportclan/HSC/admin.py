@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import  EventGalleryCategory, EventGalleryPictures, LatestEvents, Post, slider, review, Eventslider, Eventabout, EventReview, Toppost, Category, Author, ForumPost, Comment, Reply, Gallery
+from .models import  NotifUserStatus, Notify,EventGalleryCategory, EventGalleryPictures, LatestEvents, Post, slider,  Eventslider, Eventabout, EventReview, Toppost, Category, Author, ForumPost, Comment, Reply, Gallery,review
 
 # Register your models here.
 
@@ -19,3 +19,10 @@ admin.site.register(Reply)
 admin.site.register(Gallery)
 admin.site.register(EventGalleryCategory)
 admin.site.register(EventGalleryPictures)
+admin.site.register(Notify)
+admin.site.register(NotifUserStatus)
+
+
+# class NotifyAdmin(admin.ModelAdmin):
+#     list_display = (' notify_detail', 'ready_by_User','ready_by_Author')
+

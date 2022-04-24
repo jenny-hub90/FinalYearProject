@@ -2,12 +2,13 @@ from django.db import models
 from django.utils.text import slugify
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
+from pytz import timezone
 from django_resized import ResizedImageField
 from tinymce.models import HTMLField
 from hitcount.models import HitCountMixin, HitCount
 from django.contrib.contenttypes.fields import GenericRelation
 from taggit.managers import TaggableManager
-from django.shortcuts import reverse
+from django.urls import reverse
 
 
 # Create your models here.
@@ -26,6 +27,11 @@ class Post(models.Model):
     def __str__(self):
         return self.title + ' | ' + str(self.author)
 
+class review(models.Model):
+    studentimage = models.ImageField(max_length=800,upload_to="students/", blank=False)
+    studentreview = models.TextField(max_length=800, blank=False)
+    studentname = models.CharField(max_length=200, blank=False)
+    
 class Toppost(models.Model):
     newstitle = models.CharField(max_length=255, blank=False)
     newsimage = models.ImageField(max_length=800,upload_to="eventstudentsreview/", blank=False)
@@ -37,10 +43,7 @@ class slider(models.Model):
     description = models.TextField(max_length=800,blank=False)
     image = models.ImageField(upload_to="slider/", blank=False)
 
-class review(models.Model):
-    studentimage = models.ImageField(max_length=800,upload_to="students/", blank=False)
-    studentreview = models.TextField(max_length=800, blank=False)
-    studentname = models.CharField(max_length=200, blank=False)
+
 
 class Eventslider(models.Model):
     eventimg = models.ImageField(max_length=800,upload_to="events/", blank=False)
@@ -192,6 +195,18 @@ class EventGalleryPictures(models.Model):
     eventCategory = models.ManyToManyField(EventGalleryCategory)
     eventimage = models.ImageField(max_length=800,upload_to="eventgallery/", blank=False)
 
-
-
  
+class Notify(models.Model):
+    notify_detail= models.TextField()
+    ready_by_User= models.ForeignKey(User, on_delete= models.CASCADE, null=True, blank=True)
+    ready_by_Author= models.ForeignKey(Author, on_delete= models.CASCADE, null=True, blank=True)
+   
+    def __str__(self):
+        return str(self.notify_detail)
+
+# Mark Read notifications By User
+class NotifUserStatus(models.Model):
+    notif= models.ForeignKey(Notify, on_delete=models.CASCADE)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
+    status=models.BooleanField(default=False)
+    

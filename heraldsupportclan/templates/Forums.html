@@ -28,6 +28,7 @@
       <a href="{% url 'Forums' %}">Forums</a>
       <a href="{% url 'Event' %}">Events</a>
       <a href="{% url 'Newsletter' %}">Newsletter</a>
+      <a href="{% url 'notifications' %}">Notifications</a>
       {%  if user.is_superuser %}
       <a href= "{% url 'Forum_postsapproval' %}"> Approval Posts</a>
       {% endif %}

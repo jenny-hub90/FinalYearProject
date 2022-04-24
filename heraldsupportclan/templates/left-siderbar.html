@@ -1,0 +1,10 @@
+<div class="list-group">
+	<a href="{% url 'Home' %}" class="list-group-item {% if request.path == '/user-dashboard' %} active {% endif %}">Home</a>
+	<a href="{% url 'Forums' %}" class="list-group-item {% if request.path == '/update-profile' %} active {% endif %}">Forums</a>
+	<a href="{% url 'Event' %}" class="list-group-item {% if request.path == '/accounts/password_change/' %} active {% endif %}">Events</a>
+    <a href="{% url 'Newsletter' %}" class="list-group-item {% if request.path == '/update-profile' %} active {% endif %}">Newsletter</a>
+	<a href="{% url 'notifications' %}" class="list-group-item {% if request.path == '/notifications' %} active {% endif %}">Notifications <span class="float-end badge bg-info mt-1">{{total_unread}}</span></a>
+	{%  if user.is_superuser %}
+	<a href="{% url 'Forum_postsapproval' %}" class="list-group-item {% if request.path == '/Forum_postsapproval' %} active {% endif %}">Approval Posts</a>
+	{% endif %}
+</div>

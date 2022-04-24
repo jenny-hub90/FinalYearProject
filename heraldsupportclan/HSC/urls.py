@@ -3,8 +3,7 @@ from django.contrib.auth import views as auth_views
 
 
 from . import views
-from .views import Newsletter, create_post, latest_posts, search_result
-
+from .views import Newsletter,create_post, latest_posts, search_result
 
 
 
@@ -36,11 +35,15 @@ urlpatterns = [
      path('Forum_postsapproval',views.Forum_postsapproval , name="Forum_postsapproval"),
     
     path('eventinfo', views.eventinfo, name='eventinfo'),
-    path('studentreview', views.studentreview, name='studentreview'),
     path('update_profile/', views.update_profile, name='update_profile'),
     path('create_post', create_post, name="create_post"),
     path('latest_posts', latest_posts, name="latest_posts"),
     path('search_result',search_result , name="search_result"),
-   
+    path('studentreview', views.studentreview, name="studentreview"),
+    path('notifications', views.notifications, name="notifications"),
+    path('getnotifications', views.getnotifications, name="getnotifications"),
+    path('mark_read_notif', views.mark_read_notif, name="mark_read_notif")
+    
+    
     
 ]

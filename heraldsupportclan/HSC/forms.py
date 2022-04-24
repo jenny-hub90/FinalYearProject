@@ -17,5 +17,7 @@ class ForumPostForm(forms.ModelForm):
     class Meta:
         model = ForumPost
         fields = ["title", "content", "categories", "tags" ]
+    
+
 
       

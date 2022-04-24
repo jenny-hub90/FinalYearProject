@@ -1,0 +1,18 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1>Add Reviews...</h1>
+
+<form method="POST" action="." enctype="multipart/form-data" style="margin-left:150px;margin-bottom: 150px;">
+    {% csrf_token %}    
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-secondary btn-lg">Update</button>
+  </form>
+
+{% comment %} <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Post</button>
+</form> {% endcomment %}
+{% endblock content %}

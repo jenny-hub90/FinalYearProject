@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   
 </head>
 
 <body>
@@ -26,6 +26,7 @@
       <a href="{% url 'Forums' %}">Forums</a>
       <a href="{% url 'Event' %}">Events</a>
       <a href="{% url 'Newsletter' %}">Newsletter</a>
+      <a href="{% url 'notifications' %}">Notifications</a>
       {%  if user.is_superuser %}
       <a href= "{% url 'Forum_postsapproval' %}"> Approval Posts</a>
       {% endif %}

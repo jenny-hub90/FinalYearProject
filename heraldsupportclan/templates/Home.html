@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    
+  
     <link rel="stylesheet" href="{%static 'css/Home.css'%}">
    
 </head>
@@ -26,17 +27,25 @@
 <header class="header">
     
   <a href="#" class="logo"><span>Herald</span>SupportClan</a>
+  
+  
+  {% comment %} <i class="fa fa-bell" aria-hidden="true" style="font-size:25px"></i> {% endcomment %}
 
   <nav class="navbar">
     <a  href="{% url 'Home' %}">Home</a>
     <a href="{% url 'Forums' %}">Forums</a>
     <a href="{% url 'Event' %}">Events</a>
     <a  href="{% url 'Newsletter' %}">Newsletter</a>
+    <a href="{% url 'notifications' %}">Notifications</a>
     {%  if user.is_superuser %}
     <a href= "{% url 'Forum_postsapproval' %}"> Approval Posts</a>
     {% endif %}
+
   </nav>
+
   <div id="menu-bars" class="fas fa-bars"></div>
+
+  
 
 </header>
 
@@ -95,31 +104,6 @@
     <p>{{sec.desc}}</p>
   </div>
 
-  {% comment %} <div class="box" data-aos="flip-down">
-    <img src="{{sec2.img.url}}" alt="">
-    <p>{{sec2.desc}}</p>
-  </div>
-
-  <div class="box" data-aos="flip-left">
-    <img src="{{sec3.img.url}}" alt="">
-    <p>{{sec3.desc}}</p>
-  </div>
-
-  <div class="box" data-aos="flip-right">
-    <img src="{{sec4.img.url}}" alt="">
-    <p>{{sec4.desc}}</p>
-  </div>
-
-  <div class="box" data-aos="flip-up">
-    <img src="{{sec5.img.url}}" alt="">
-    <p>{{sec5.desc}}</p>
-  </div>
-
-  <div class="box" data-aos="flip-right">
-    <img src="{{sec6.img.url}}" alt="">
-    <p>{{sec6.desc}}</p>
-  </div> {% endcomment %}
-
 
 </div>
 {% endfor %}
@@ -171,7 +155,7 @@
 
 <section id="testimonial">
 
-<h1 class="heading"><a href="{% url 'studentreview' %}">what our students says</a></h1>
+<h1 class="heading">what our students says</h1>
 <div class="box-container">
 
   <div class="box" data-aos="flip-left">
@@ -286,7 +270,6 @@
 <!-- custom js file link  -->
 <script src="{%static 'js/Home.js'%}"></script>
 <script src="{%static 'js/event.js'%}"></script>
-<script src ="{%static 'js/script.js'%}"></script>
-
+<script src="{%static 'js/firebase-messaging-sw.js'%}"></script>
 </body> 
 </html>

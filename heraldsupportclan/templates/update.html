@@ -42,7 +42,7 @@
   }
 
   .form-control{
-    width:75%;
+    width:85%;
     font-size: 15px;
   }
   
@@ -105,9 +105,7 @@ h2 span {
   <form method="POST" action="." enctype="multipart/form-data" style="margin-left:150px;margin-bottom: 150px;">
     {% csrf_token %}    
     {{ form|crispy }}
-    {% comment %} <button class= "btn btn-secondary"> Update</button> {% endcomment %}
     <button type="submit" class="btn btn-secondary btn-lg">Update</button>
-    {% comment %} <input type="submit" value="Update"  style="margin-block:50px;"> {% endcomment %}
   </form>
 </div>
 </div>

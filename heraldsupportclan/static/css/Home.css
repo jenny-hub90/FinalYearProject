@@ -166,7 +166,6 @@ section{
   color:var(--main-color);
 } 
 
-
 .header .navbar a{
   font-size: 1.7rem;
   color:#333;
@@ -174,19 +173,53 @@ section{
   background: #fff;
   
 }
-
-/* .btn {
-  border: none;
-  outline: none;
-  padding: 10px 16px;
-  background-color: #00B894;
-  cursor: pointer;
-} */
-
-/* .header .navbar .active, .a:hover{
+.notification {
   background-color: #333;
-  color:white;
-} */
+  color: white;
+  text-decoration: none;
+  padding: 4px 24px;
+  margin-right: 20px;
+  margin-left: 20px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+  font-size: 20px;
+}
+
+.notification:hover {
+  background:#75bf44 ;
+  color: #fff;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 0px 8px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+
+.notification-section .dropdown-toggle::after {
+  content: none;
+}
+
+.dropdown-toggle::after {
+  color: #333;
+}
+
+#notifications-dropdown li {
+  max-width: 500px;
+  word-wrap: break-word;
+  display: inline-block;
+  white-space: normal;
+}
+
+#notifications-dropdown.dropdown-menu {
+  width: 15rem;
+}
+
 
 .active{
   background-color: #333;
@@ -854,6 +887,10 @@ footer  span{
       float: none;
     }
   }
+
+  
+
+  
   
 
 /* 
